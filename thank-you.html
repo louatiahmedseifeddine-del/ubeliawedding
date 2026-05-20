@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You — Ubelia Wedding Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:       #FFF8EE;
+      --sage:        #7F8D74;
+      --sage-dark:   #4A5944;
+      --charcoal:    #1C1A17;
+      --mid:         #6B6158;
+      --sand:        #C4A882;
+      --blush:       #F5EDE4;
+      --coral:       #C9845A;
+      --light-border: rgba(196,168,130,0.25);
+      --radius:      16px;
+    }
+
+    html, body {
+      min-height: 100vh;
+      background: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--charcoal);
+    }
+
+    /* ── Confetti canvas ── */
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Page layout ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px 64px;
+    }
+
+    /* ── Logo ── */
+    .logo {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .logo img {
+      height: 64px;
+      width: auto;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #fff;
+      border: 1px solid var(--light-border);
+      border-radius: 24px;
+      max-width: 560px;
+      width: 100%;
+      padding: 52px 48px;
+      text-align: center;
+      box-shadow: 0 8px 48px rgba(196,168,130,0.13);
+    }
+
+    /* ── Check icon ── */
+    .check-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    .check-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: #fff;
+      stroke-width: 2.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    /* ── Script heading ── */
+    .script {
+      font-family: 'Allura', cursive;
+      font-size: 2.2rem;
+      color: var(--sage);
+      margin-bottom: 8px;
+    }
+
+    /* ── Main heading ── */
+    .card h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    /* ── Sub text ── */
+    .card p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .card p strong {
+      color: var(--charcoal);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--light-border);
+      margin: 32px 0;
+    }
+
+    /* ── Download button ── */
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
+      color: #fff;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 16px 36px;
+      border-radius: 100px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(79,89,68,0.25);
+      margin-bottom: 12px;
+    }
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(79,89,68,0.35);
+    }
+    .btn-download svg {
+      width: 20px; height: 20px;
+      stroke: #fff;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* ── What's inside ── */
+    .inside-list {
+      text-align: left;
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin: 32px 0;
+    }
+    .inside-list h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-bottom: 16px;
+    }
+    .inside-list ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .inside-list ul li {
+      font-size: 0.875rem;
+      color: var(--mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.5;
+    }
+    .inside-list ul li::before {
+      content: '✓';
+      color: var(--sage);
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Support ── */
+    .support {
+      font-size: 0.85rem;
+      color: var(--mid);
+      margin-top: 28px;
+    }
+    .support a {
+      color: var(--sage-dark);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px solid var(--light-border);
+    }
+    .support a:hover {
+      border-color: var(--sage);
+    }
+
+    /* ── Back link ── */
+    .back-link {
+      margin-top: 36px;
+      font-size: 0.85rem;
+      color: var(--mid);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .back-link:hover { opacity: 1; }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .card { padding: 36px 24px; }
+      .card h1 { font-size: 1.55rem; }
+      .script { font-size: 1.8rem; }
+      .btn-download { padding: 15px 28px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<div class="page">
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="ubelia-logo.png" alt="Ubelia Wedding" onerror="this.style.display='none'" />
+  </div>
+
+  <!-- Main card -->
+  <div class="card">
+
+    <!-- Check -->
+    <div class="check-icon">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+
+    <div class="script">Thank you!</div>
+
+    <h1>Your wedding journey starts now 💍</h1>
+
+    <p>
+      Your purchase is confirmed. We've sent a receipt to your email —
+      <strong>your guide is ready to download right now.</strong>
+    </p>
+
+    <p>
+      Click the button below to access your complete wedding guide and all 7 bonuses.
+    </p>
+
+    <!-- Download CTA -->
+    <a class="btn-download" href="https://drive.google.com/file/d/1dXuP2dFbJKIkB8ruUgvs-npx-8E-5eZ4/view?usp=sharing" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download My Guide Now
+    </a>
+
+    <hr class="divider" />
+
+    <!-- What's inside -->
+    <div class="inside-list">
+      <h3>What's included in your purchase</h3>
+      <ul>
+        <li>The Complete Wedding Guide — all 10 chapters</li>
+        <li>33 Automated Google Sheets (Budget Calculator)</li>
+        <li>100% Editable Canva Invitations</li>
+        <li>19 Expert Pro Tips</li>
+        <li>Budget Case Studies — Real Weddings, Real Numbers</li>
+        <li>The Couple's Shared Workspace</li>
+        <li>Lifetime Access &amp; Free Updates</li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <p class="support">
+      Questions or need help? We're here for you.<br />
+      <a href="mailto:Hello@ubelia.eu">Hello@ubelia.eu</a>
+    </p>
+
+  </div>
+
+  <!-- Back link -->
+  <a class="back-link" href="index.html">
+    ← Back to Ubelia
+  </a>
+
+</div>
+
+<!-- ── Confetti ── -->
+<script>
+(function () {
+  var canvas  = document.getElementById('confetti-canvas');
+  var ctx     = canvas.getContext('2d');
+  var pieces  = [];
+  var colors  = ['#7F8D74','#C4A882','#C9845A','#F5EDE4','#4A5944','#FFF8EE'];
+  var running = true;
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function rand(min, max) { return Math.random() * (max - min) + min; }
+
+  for (var i = 0; i < 120; i++) {
+    pieces.push({
+      x:     rand(0, window.innerWidth),
+      y:     rand(-window.innerHeight, 0),
+      w:     rand(7, 14),
+      h:     rand(4, 9),
+      color: colors[Math.floor(Math.random() * colors.length)],
+      rot:   rand(0, Math.PI * 2),
+      vx:    rand(-1.5, 1.5),
+      vy:    rand(2, 5),
+      vr:    rand(-0.08, 0.08),
+      alpha: rand(0.7, 1)
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(function (p) {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle   = p.color;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      ctx.restore();
+      p.x  += p.vx;
+      p.y  += p.vy;
+      p.rot += p.vr;
+      if (p.y > canvas.height + 20) {
+        p.y = -20;
+        p.x = rand(0, canvas.width);
+      }
+    });
+    if (running) requestAnimationFrame(draw);
+  }
+  draw();
+
+  // Stop confetti after 5s
+  setTimeout(function () { running = false; ctx.clearRect(0, 0, canvas.width, canvas.height); }, 5000);
+})();
+</script>
+
+</body>
+</html>
