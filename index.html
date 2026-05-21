@@ -769,6 +769,31 @@
       font-weight: 300;
     }
 
+    .testi-rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .testi-rating__stars {
+      color: #D4A843;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+    .testi-rating__score {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    .testi-rating__label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--mid);
+    }
+
     /* ── Slider shell ── */
     .testi-slider {
       position: relative;
@@ -1892,6 +1917,11 @@
       <div class="testimonials-section__header" data-animate>
         <span class="label">Real Couples</span>
         <h2>Their Dream Wedding. Your Turn.</h2>
+        <div class="testi-rating">
+          <span class="testi-rating__stars">★★★★★</span>
+          <span class="testi-rating__score">4.9</span>
+          <span class="testi-rating__label">based on 3,587 reviews</span>
+        </div>
       </div>
     </div>
 
