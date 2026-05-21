@@ -357,6 +357,118 @@
     /* <img src="HERO_IMAGE.webp" alt="Ubelia Wedding Planning Guide preview" style="width:100%;height:100%;object-fit:cover;" /> */
 
     /* ════════════════════════════════════════════════════════════════
+       2b. BEFORE / AFTER SECTION
+    ════════════════════════════════════════════════════════════════ */
+    .before-after-section {
+      background: var(--cream);
+      padding: 80px 0 72px;
+    }
+    .before-after-section__header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .before-after-section__header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      font-weight: 400;
+      color: var(--charcoal);
+      max-width: 640px;
+      margin: 0 auto 0;
+      line-height: 1.25;
+    }
+    .before-after-section__header .label { margin-bottom: 12px; }
+
+    /* Column headers */
+    .ba-headers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 780px;
+      margin: 0 auto 16px;
+      padding: 0 24px;
+    }
+    .ba-col-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 8px 0;
+      border-radius: 100px;
+    }
+    .ba-col-label--before {
+      color: #9B4444;
+      background: rgba(155,68,68,0.08);
+    }
+    .ba-col-label--after {
+      color: var(--sage-dark);
+      background: rgba(127,141,116,0.12);
+    }
+
+    /* Cards grid */
+    .before-after-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .ba-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .ba-card {
+      border-radius: 14px;
+      padding: 20px 22px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .ba-card--before {
+      background: rgba(155,68,68,0.06);
+      border: 1px solid rgba(155,68,68,0.15);
+      color: #6B3333;
+    }
+    .ba-card--after {
+      background: rgba(127,141,116,0.09);
+      border: 1px solid rgba(127,141,116,0.25);
+      color: var(--sage-dark);
+    }
+    .ba-card__icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .ba-card__text { flex: 1; }
+
+    /* CTA row */
+    .before-after-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+    .before-after-cta p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 3vw, 1.55rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 540px) {
+      .ba-headers { grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 16px; }
+      .before-after-grid { padding: 0 16px; gap: 8px; }
+      .ba-row { gap: 8px; }
+      .ba-card { padding: 14px 14px; font-size: 0.82rem; }
+    }
+
+    /* ════════════════════════════════════════════════════════════════
        3. SCROLLING PREVIEW STRIP
     ════════════════════════════════════════════════════════════════ */
     .preview-strip {
@@ -1487,6 +1599,81 @@
       <div class="hero__media" data-animate>
         <img src="ubelia-cover.png" alt="The Complete Wedding Guide by Ubelia — product cover" loading="eager" />
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       2b. BEFORE / AFTER
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="before-after-section">
+    <div class="container">
+
+      <div class="before-after-section__header" data-animate>
+        <span class="label">The Difference</span>
+        <h2>This Is What Planning Looks Like With Ubelia</h2>
+      </div>
+
+      <!-- Column labels -->
+      <div class="ba-headers">
+        <div class="ba-col-label ba-col-label--before">❌ Without a system</div>
+        <div class="ba-col-label ba-col-label--after">✅ With Ubelia</div>
+      </div>
+
+      <!-- 4 rows -->
+      <div class="before-after-grid">
+
+        <div class="ba-row" data-animate>
+          <div class="ba-card ba-card--before">
+            <span class="ba-card__icon">❌</span>
+            <span class="ba-card__text">Scattered across 14 browser tabs, three chats, and a notes app you forgot about</span>
+          </div>
+          <div class="ba-card ba-card--after">
+            <span class="ba-card__icon">✅</span>
+            <span class="ba-card__text">One complete system — every vendor, deadline, and decision in one place</span>
+          </div>
+        </div>
+
+        <div class="ba-row" data-animate>
+          <div class="ba-card ba-card--before">
+            <span class="ba-card__icon">❌</span>
+            <span class="ba-card__text">Staring at a blank template wondering what to do first</span>
+          </div>
+          <div class="ba-card ba-card--after">
+            <span class="ba-card__icon">✅</span>
+            <span class="ba-card__text">Pre-filled timelines and suggested tasks that tell you exactly what comes next</span>
+          </div>
+        </div>
+
+        <div class="ba-row" data-animate>
+          <div class="ba-card ba-card--before">
+            <span class="ba-card__icon">❌</span>
+            <span class="ba-card__text">Touring three venues before realizing you're $8,000 over budget</span>
+          </div>
+          <div class="ba-card ba-card--after">
+            <span class="ba-card__icon">✅</span>
+            <span class="ba-card__text">A budget tracker with estimate vs. actual vs. variance — you see overruns before they happen</span>
+          </div>
+        </div>
+
+        <div class="ba-row" data-animate>
+          <div class="ba-card ba-card--before">
+            <span class="ba-card__icon">❌</span>
+            <span class="ba-card__text">Carrying the entire wedding on your shoulders</span>
+          </div>
+          <div class="ba-card ba-card--after">
+            <span class="ba-card__icon">✅</span>
+            <span class="ba-card__text">Shareable sheets + delegation pages so your partner and family can actually help</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="before-after-cta" data-animate>
+        <p>"Stop managing the chaos. Start finishing the checklist."</p>
+        <a href="https://buy.stripe.com/eVq5kD1s54KT65y0ZMdnW0W" class="btn-primary">Get Instant Access — $36</a>
+      </div>
+
     </div>
   </section>
 
