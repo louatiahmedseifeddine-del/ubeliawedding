@@ -657,29 +657,33 @@
       font-weight: 300;
     }
 
-    /* ── Carousel rows ── */
-    .testi-track-wrapper {
-      overflow: hidden;
-      margin-bottom: 20px;
+    /* ── Slider shell ── */
+    .testi-slider {
+      position: relative;
+      padding: 0 56px;
+      margin-top: 44px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .testi-track-wrapper:last-of-type { margin-bottom: 0; }
+    @media (max-width: 480px) {
+      .testi-slider { padding: 0 44px; }
+    }
+
+    .testi-viewport {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
 
     .testi-track {
       display: flex;
       gap: 20px;
-      width: max-content;
-      animation: slide 38s linear infinite;
-    }
-    .testi-track:hover { animation-play-state: paused; }
-
-    .testi-track--rev {
-      animation-name: slide-reverse;
-      animation-duration: 30s;
+      transition: transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
     }
 
     /* ── Cards ── */
     .testi-card {
-      width: 320px;
       flex-shrink: 0;
       background: #fff;
       border-radius: var(--radius-lg);
@@ -689,12 +693,59 @@
     }
 
     .testi-card__photo {
-      width: 320px;
+      width: 100%;
       height: 210px;
       object-fit: cover;
       object-position: center center;
       display: block;
     }
+
+    /* ── Arrow buttons ── */
+    .testi-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-60%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--light-border);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.2s, border-color 0.2s;
+      padding: 0;
+    }
+    .testi-arrow:hover { background: var(--sage); border-color: var(--sage); }
+    .testi-arrow:hover svg { stroke: #fff; }
+    .testi-arrow svg { stroke: var(--sage-dark); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; width: 20px; height: 20px; }
+    .testi-arrow--prev { left: 0; }
+    .testi-arrow--next { right: 0; }
+    .testi-arrow:disabled { opacity: 0.3; cursor: default; }
+    .testi-arrow:disabled:hover { background: #fff; border-color: var(--light-border); }
+    .testi-arrow:disabled:hover svg { stroke: var(--sage-dark); }
+
+    /* ── Dots ── */
+    .testi-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+    .testi-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--sand);
+      opacity: 0.35;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .testi-dot.active { opacity: 1; transform: scale(1.35); background: var(--sage); }
 
     .testi-card__body {
       padding: 18px 22px 22px;
@@ -1659,184 +1710,107 @@
       </div>
     </div>
 
-    <!-- ROW 1 — 5 reviews → scroll left (normal) -->
-    <div class="testi-track-wrapper">
-      <div class="testi-track">
-        <!-- Card 1 -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-1.jpg" alt="Sophia &amp; James" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"I cried three times during our engagement — not from joy, but from budget panic. The moment I opened the tracker and saw everything calculate automatically, I burst into happy tears. We came in $2,400 under budget without cutting a single thing we wanted."</blockquote>
-            <div class="testi-card__footer">
-              <span class="testi-author">Sophia &amp; James</span>
-              <span class="testi-meta">Married February 2025</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-2.jpg" alt="Priya &amp; Tom" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"I'm a project manager — I thought I could handle wedding planning. I was wrong. Three months in, I had 47 browser tabs open and had booked nothing. The vendor scripts saved me 20+ hours, and we got our photographer 15% under his listed price."</blockquote>
-            <div class="testi-card__footer">
-              <span class="testi-author">Priya &amp; Tom</span>
-              <span class="testi-meta">Married April 2025</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-3.png" alt="Claire &amp; Lucas" style="object-position:center 25%;" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"On our wedding morning, while my bridesmaids were panicking, I was completely calm. Every vendor knew exactly where to be and when. My mum kept asking why I wasn't stressed. 'I used Ubelia,' I told her. She bought it for my sister the next day."</blockquote>
-            <div class="testi-card__footer">
-              <span class="testi-author">Claire &amp; Lucas</span>
-              <span class="testi-meta">Married June 2025</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-4.png" alt="Amara &amp; Marcus" style="object-position:center 25%;" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"Our venue tried to sneak in a $800 mandatory package. Marcus used the contract checklist and spotted it as a negotiable clause. One 10-minute conversation. $800 saved. This guide paid for itself 33 times over."</blockquote>
-            <div class="testi-card__footer">
-              <span class="testi-author">Amara &amp; Marcus</span>
-              <span class="testi-meta">Married August 2025</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 5 -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-5.png" alt="Emma &amp; Ryan" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"I'm an accountant, not a writer. The thought of vows made me physically sick. I followed the framework step by step and wrote something that made Ryan cry before I'd finished the second paragraph. His mum said it was the most beautiful thing she'd ever heard."</blockquote>
-            <div class="testi-card__footer">
-              <span class="testi-author">Emma &amp; Ryan</span>
-              <span class="testi-meta">Married October 2025</span>
-            </div>
-          </div>
-        </div>
-        <!-- Duplicate set -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-1.jpg" alt="Sophia &amp; James" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"I cried three times during our engagement — not from joy, but from budget panic. The moment I opened the tracker and saw everything calculate automatically, I burst into happy tears. We came in $2,400 under budget without cutting a single thing we wanted."</blockquote>
-            <div class="testi-card__footer"><span class="testi-author">Sophia &amp; James</span><span class="testi-meta">Married February 2025</span></div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-2.jpg" alt="Priya &amp; Tom" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"I'm a project manager — I thought I could handle wedding planning. I was wrong. Three months in, I had 47 browser tabs open and had booked nothing. The vendor scripts saved me 20+ hours, and we got our photographer 15% under his listed price."</blockquote>
-            <div class="testi-card__footer"><span class="testi-author">Priya &amp; Tom</span><span class="testi-meta">Married April 2025</span></div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-3.png" alt="Claire &amp; Lucas" style="object-position:center 25%;" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"On our wedding morning, while my bridesmaids were panicking, I was completely calm. Every vendor knew exactly where to be and when. My mum kept asking why I wasn't stressed. 'I used Ubelia,' I told her. She bought it for my sister the next day."</blockquote>
-            <div class="testi-card__footer"><span class="testi-author">Claire &amp; Lucas</span><span class="testi-meta">Married June 2025</span></div>
-          </div>
-        </div>
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-4.png" alt="Amara &amp; Marcus" style="object-position:center 25%;" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"Our venue tried to sneak in a $800 mandatory package. Marcus used the contract checklist and spotted it as a negotiable clause. One 10-minute conversation. $800 saved. This guide paid for itself 33 times over."</blockquote>
-            <div class="testi-card__footer"><span class="testi-author">Amara &amp; Marcus</span><span class="testi-meta">Married August 2025</span></div>
+    <!-- Slider -->
+    <div class="testi-slider">
+      <!-- Prev arrow -->
+      <button class="testi-arrow testi-arrow--prev" id="testiPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
 
+      <div class="testi-viewport">
+        <div class="testi-track" id="testiTrack">
+          <!-- Card 1 -->
+          <div class="testi-card">
+            <img class="testi-card__photo" src="testi-1.jpg" alt="Sophia &amp; James" />
+            <div class="testi-card__body">
+              <span class="testi-stars">★★★★★</span>
+              <blockquote class="testi-quote">"I cried three times during our engagement — not from joy, but from budget panic. The moment I opened the tracker and saw everything calculate automatically, I burst into happy tears. We came in $2,400 under budget without cutting a single thing we wanted."</blockquote>
+              <div class="testi-card__footer"><span class="testi-author">Sophia &amp; James</span><span class="testi-meta">Married February 2025</span></div>
+            </div>
           </div>
-        </div>
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-5.png" alt="Emma &amp; Ryan" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"I'm an accountant, not a writer. The thought of vows made me physically sick. I followed the framework step by step and wrote something that made Ryan cry before I'd finished the second paragraph. His mum said it was the most beautiful thing she'd ever heard."</blockquote>
-            <div class="testi-card__footer"><span class="testi-author">Emma &amp; Ryan</span><span class="testi-meta">Married October 2025</span></div>
+          <!-- Card 2 -->
+          <div class="testi-card">
+            <img class="testi-card__photo" src="testi-2.jpg" alt="Priya &amp; Tom" />
+            <div class="testi-card__body">
+              <span class="testi-stars">★★★★★</span>
+              <blockquote class="testi-quote">"I'm a project manager — I thought I could handle wedding planning. I was wrong. Three months in, I had 47 browser tabs open and had booked nothing. The vendor scripts saved me 20+ hours, and we got our photographer 15% under his listed price."</blockquote>
+              <div class="testi-card__footer"><span class="testi-author">Priya &amp; Tom</span><span class="testi-meta">Married April 2025</span></div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="testi-card">
+            <img class="testi-card__photo" src="testi-3.png" alt="Claire &amp; Lucas" style="object-position:center 25%;" />
+            <div class="testi-card__body">
+              <span class="testi-stars">★★★★★</span>
+              <blockquote class="testi-quote">"On our wedding morning, while my bridesmaids were panicking, I was completely calm. Every vendor knew exactly where to be and when. My mum kept asking why I wasn't stressed. 'I used Ubelia,' I told her. She bought it for my sister the next day."</blockquote>
+              <div class="testi-card__footer"><span class="testi-author">Claire &amp; Lucas</span><span class="testi-meta">Married June 2025</span></div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="testi-card">
+            <img class="testi-card__photo" src="testi-4.png" alt="Amara &amp; Marcus" style="object-position:center 25%;" />
+            <div class="testi-card__body">
+              <span class="testi-stars">★★★★★</span>
+              <blockquote class="testi-quote">"Our venue tried to sneak in a $800 mandatory package. Marcus used the contract checklist and spotted it as a negotiable clause. One 10-minute conversation. $800 saved. This guide paid for itself 33 times over."</blockquote>
+              <div class="testi-card__footer"><span class="testi-author">Amara &amp; Marcus</span><span class="testi-meta">Married August 2025</span></div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="testi-card">
+            <img class="testi-card__photo" src="testi-5.png" alt="Emma &amp; Ryan" />
+            <div class="testi-card__body">
+              <span class="testi-stars">★★★★★</span>
+              <blockquote class="testi-quote">"I'm an accountant, not a writer. The thought of vows made me physically sick. I followed the framework step by step and wrote something that made Ryan cry before I'd finished the second paragraph. His mum said it was the most beautiful thing she'd ever heard."</blockquote>
+              <div class="testi-card__footer"><span class="testi-author">Emma &amp; Ryan</span><span class="testi-meta">Married October 2025</span></div>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="testi-card">
+            <img class="testi-card__photo" src="testi-6.png" alt="Zara &amp; Kofi" style="object-position:center 25%;" />
+            <div class="testi-card__body">
+              <span class="testi-stars">★★★★★</span>
+              <blockquote class="testi-quote">"We planned a wedding across two countries — US ceremony, Ghana reception. I didn't think one guide could handle it. The checklist ran both events, the guest tracker managed two separate lists, the budget handled two currencies. It was the only thing keeping us sane."</blockquote>
+              <div class="testi-card__footer"><span class="testi-author">Zara &amp; Kofi</span><span class="testi-meta">Married December 2025</span></div>
+            </div>
+          </div>
+          <!-- Card 7 -->
+          <div class="testi-card">
+            <img class="testi-card__photo" src="testi-7.png" alt="Isabella &amp; Marco" style="object-position:center 25%;" />
+            <div class="testi-card__body">
+              <span class="testi-stars">★★★★★</span>
+              <blockquote class="testi-quote">"Our venue cancelled 11 weeks before the wedding. Because I'd used the venue comparison tracker, I had full notes on three backup options ready. We confirmed a new venue in 4 days and nobody at the wedding ever knew. Ubelia literally saved our wedding."</blockquote>
+              <div class="testi-card__footer"><span class="testi-author">Isabella &amp; Marco</span><span class="testi-meta">Married January 2026</span></div>
+            </div>
+          </div>
+          <!-- Card 8 -->
+          <div class="testi-card">
+            <img class="testi-card__photo" src="testi-8.png" alt="Ashley &amp; Tyler" />
+            <div class="testi-card__body">
+              <span class="testi-stars">★★★★★</span>
+              <blockquote class="testi-quote">"450 guests, two families who don't speak the same language, a seating chart that changed 31 times. The seating tool tracked every change automatically. My mother-in-law called it a miracle. I called it Ubelia. Honestly, same thing."</blockquote>
+              <div class="testi-card__footer"><span class="testi-author">Ashley &amp; Tyler</span><span class="testi-meta">Married March 2026</span></div>
+            </div>
+          </div>
+          <!-- Card 9 -->
+          <div class="testi-card">
+            <img class="testi-card__photo" src="testi-camille.png" alt="Camille &amp; Sophia" style="object-position:center 45%;" />
+            <div class="testi-card__body">
+              <span class="testi-stars">★★★★★</span>
+              <blockquote class="testi-quote">"Six months before our wedding I was googling 'how to survive wedding planning' at 2am. I found Ubelia. The 12-month timeline showed me we were actually on track — I just couldn't see it through the chaos. Our day was peaceful, joyful, exactly as we'd dreamed."</blockquote>
+              <div class="testi-card__footer"><span class="testi-author">Camille &amp; Sophia</span><span class="testi-meta">Married April 2026</span></div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Next arrow -->
+      <button class="testi-arrow testi-arrow--next" id="testiNext" aria-label="Next">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
 
-    <!-- ROW 2 — 4 reviews ← scroll right (reverse) -->
-    <div class="testi-track-wrapper">
-      <div class="testi-track testi-track--rev">
-        <!-- Card 6 -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-6.png" alt="Zara &amp; Kofi" style="object-position:center 25%;" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"We planned a wedding across two countries — US ceremony, Ghana reception. I didn't think one guide could handle it. The checklist ran both events, the guest tracker managed two separate lists, the budget handled two currencies. It was the only thing keeping us sane."</blockquote>
-            <div class="testi-card__footer">
-              <span class="testi-author">Zara &amp; Kofi</span>
-              <span class="testi-meta">Married December 2025</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 7 -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-7.png" alt="Isabella &amp; Marco" style="object-position:center 25%;" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"Our venue cancelled 11 weeks before the wedding. Because I'd used the venue comparison tracker, I had full notes on three backup options ready. We confirmed a new venue in 4 days and nobody at the wedding ever knew. Ubelia literally saved our wedding."</blockquote>
-            <div class="testi-card__footer">
-              <span class="testi-author">Isabella &amp; Marco</span>
-              <span class="testi-meta">Married January 2026</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 8 -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-8.png" alt="Ashley &amp; Tyler" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"450 guests, two families who don't speak the same language, a seating chart that changed 31 times. The seating tool tracked every change automatically. My mother-in-law called it a miracle. I called it Ubelia. Honestly, same thing."</blockquote>
-            <div class="testi-card__footer">
-              <span class="testi-author">Ashley &amp; Tyler</span>
-              <span class="testi-meta">Married March 2026</span>
-            </div>
-          </div>
-        </div>
-        <!-- Card 9 -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-camille.png" alt="Camille &amp; Sophia" style="object-position:center 45%;" />
-          <div class="testi-card__body">
-            <span class="testi-stars">★★★★★</span>
-            <blockquote class="testi-quote">"Six months before our wedding I was googling 'how to survive wedding planning' at 2am. I found Ubelia. The 12-month timeline showed me we were actually on track — I just couldn't see it through the chaos. Our day was peaceful, joyful, exactly as we'd dreamed."</blockquote>
-            <div class="testi-card__footer">
-              <span class="testi-author">Camille &amp; Sophia</span>
-              <span class="testi-meta">Married April 2026</span>
-            </div>
-          </div>
-        </div>
-        <!-- Duplicate set -->
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-6.png" alt="Zara &amp; Kofi" style="object-position:center 25%;" />
-          <div class="testi-card__body"><span class="testi-stars">★★★★★</span><blockquote class="testi-quote">"We planned a wedding across two countries — US ceremony, Ghana reception. I didn't think one guide could handle it. The checklist ran both events, the guest tracker managed two separate lists, the budget handled two currencies. It was the only thing keeping us sane."</blockquote><div class="testi-card__footer"><span class="testi-author">Zara &amp; Kofi</span><span class="testi-meta">Married December 2025</span></div></div>
-        </div>
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-7.png" alt="Isabella &amp; Marco" style="object-position:center 25%;" />
-          <div class="testi-card__body"><span class="testi-stars">★★★★★</span><blockquote class="testi-quote">"Our venue cancelled 11 weeks before the wedding. Because I'd used the venue comparison tracker, I had full notes on three backup options ready. We confirmed a new venue in 4 days and nobody at the wedding ever knew. Ubelia literally saved our wedding."</blockquote><div class="testi-card__footer"><span class="testi-author">Isabella &amp; Marco</span><span class="testi-meta">Married January 2026</span></div></div>
-        </div>
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-8.png" alt="Ashley &amp; Tyler" />
-          <div class="testi-card__body"><span class="testi-stars">★★★★★</span><blockquote class="testi-quote">"450 guests, two families who don't speak the same language, a seating chart that changed 31 times. The seating tool tracked every change automatically. My mother-in-law called it a miracle. I called it Ubelia. Honestly, same thing."</blockquote><div class="testi-card__footer"><span class="testi-author">Ashley &amp; Tyler</span><span class="testi-meta">Married March 2026</span></div></div>
-        </div>
-        <div class="testi-card">
-          <img class="testi-card__photo" src="testi-camille.png" alt="Camille &amp; Sophia" style="object-position:center 45%;" />
-          <div class="testi-card__body"><span class="testi-stars">★★★★★</span><blockquote class="testi-quote">"Six months before our wedding I was googling 'how to survive wedding planning' at 2am. I found Ubelia. The 12-month timeline showed me we were actually on track — I just couldn't see it through the chaos. Our day was peaceful, joyful, exactly as we'd dreamed."</blockquote><div class="testi-card__footer"><span class="testi-author">Camille &amp; Sophia</span><span class="testi-meta">Married April 2026</span></div></div>
-        </div>
-      </div>
-    </div>
+    <!-- Dots -->
+    <div class="testi-dots" id="testiDots"></div>
 
     <!-- CTA -->
     <div class="container">
@@ -2162,6 +2136,87 @@
 
       targets.forEach(function(el) { observer.observe(el); });
     })();
+  </script>
+
+  <!-- ══ TESTIMONIALS SLIDER ══════════════════════════════════════ -->
+  <script>
+  (function () {
+    var track    = document.getElementById('testiTrack');
+    var viewport = track.parentElement;
+    var btnPrev  = document.getElementById('testiPrev');
+    var btnNext  = document.getElementById('testiNext');
+    var dotsEl   = document.getElementById('testiDots');
+    var cards    = Array.from(track.children);
+    var n        = cards.length;
+    var current  = 0;
+    var GAP      = 20;
+
+    function perView() {
+      var w = viewport.offsetWidth;
+      if (w >= 860) return 3;
+      if (w >= 540) return 2;
+      return 1;
+    }
+
+    function maxIdx() { return Math.max(0, n - perView()); }
+
+    function setWidths() {
+      var pv = perView();
+      var w  = Math.floor((viewport.offsetWidth - GAP * (pv - 1)) / pv);
+      cards.forEach(function (c) { c.style.width = w + 'px'; });
+    }
+
+    function goTo(idx) {
+      current = Math.min(Math.max(idx, 0), maxIdx());
+      var pv  = perView();
+      var w   = Math.floor((viewport.offsetWidth - GAP * (pv - 1)) / pv);
+      track.style.transform = 'translateX(-' + current * (w + GAP) + 'px)';
+      btnPrev.disabled = current === 0;
+      btnNext.disabled = current >= maxIdx();
+      Array.from(dotsEl.children).forEach(function (d, i) {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      var total = maxIdx() + 1;
+      for (var i = 0; i < total; i++) {
+        (function(i) {
+          var d = document.createElement('button');
+          d.className = 'testi-dot' + (i === 0 ? ' active' : '');
+          d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+          d.addEventListener('click', function () { goTo(i); });
+          dotsEl.appendChild(d);
+        })(i);
+      }
+    }
+
+    function init() {
+      setWidths();
+      buildDots();
+      goTo(0);
+    }
+
+    btnPrev.addEventListener('click', function () { goTo(current - 1); });
+    btnNext.addEventListener('click', function () { goTo(current + 1); });
+
+    // Touch / swipe support
+    var startX = 0;
+    viewport.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    viewport.addEventListener('touchend', function (e) {
+      var diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+    });
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () { init(); }, 120);
+    });
+
+    init();
+  })();
   </script>
 
   <!-- ══ STRIPE SUCCESS BANNER ════════════════════════════════════ -->
