@@ -686,115 +686,188 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
-       2b. BEFORE / AFTER SECTION
+       2b. COMPARISON TABLE
     ════════════════════════════════════════════════════════════════ */
-    .before-after-section {
+    .comparison-section {
       background: var(--cream);
-      padding: 80px 0 72px;
+      padding: 88px 0 80px;
     }
-    .before-after-section__header {
+    .comparison-header {
       text-align: center;
       margin-bottom: 52px;
     }
-    .before-after-section__header h2 {
+    .comparison-header h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.75rem, 4vw, 2.4rem);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 400;
       color: var(--charcoal);
       max-width: 640px;
-      margin: 0 auto 0;
-      line-height: 1.25;
+      margin: 0 auto 14px;
+      line-height: 1.2;
     }
-    .before-after-section__header .label { margin-bottom: 12px; }
+    .comparison-header__sub {
+      font-size: 15px;
+      color: var(--mid);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
 
-    /* Column headers */
-    .ba-headers {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      max-width: 780px;
-      margin: 0 auto 16px;
-      padding: 0 24px;
+    .comparison-table {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid var(--light-border);
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(28,26,23,0.06);
     }
-    .ba-col-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
+
+    /* Table head */
+    .ct-head {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      background: var(--charcoal);
+    }
+    .ct-head__topic {
+      padding: 18px 24px;
+      font-size: 11px;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      text-align: center;
-      padding: 8px 0;
-      border-radius: 100px;
+      color: rgba(255,248,238,0.4);
+      display: flex;
+      align-items: center;
     }
-    .ba-col-label--before {
-      color: #9B4444;
-      background: rgba(155,68,68,0.08);
+    .ct-head__col {
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .ba-col-label--after {
-      color: var(--sage-dark);
-      background: rgba(127,141,116,0.12);
+    .ct-head__col--before {
+      border-left: 1px solid rgba(255,255,255,0.07);
     }
+    .ct-head__col--after {
+      border-left: 1px solid rgba(255,255,255,0.07);
+    }
+    .ct-head__label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .ct-head__col--before .ct-head__label { color: rgba(220,160,160,0.9); }
+    .ct-head__col--after  .ct-head__label { color: rgba(180,210,175,0.9); }
 
-    /* Cards grid */
-    .before-after-grid {
+    /* Table rows */
+    .ct-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr;
+      border-top: 1px solid var(--light-border);
+      transition: background 0.15s;
+    }
+    .ct-row:hover { background: rgba(255,248,238,0.5); }
+    .ct-row--highlight {
+      background: rgba(127,141,116,0.04);
+    }
+    .ct-row--highlight:hover { background: rgba(127,141,116,0.08); }
+
+    .ct-row__topic {
+      padding: 24px 24px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 0 24px;
+      gap: 4px;
+      border-right: 1px solid var(--light-border);
+      justify-content: center;
     }
-    .ba-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .ct-row__num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--sand);
     }
-    .ba-card {
-      border-radius: 14px;
-      padding: 20px 22px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      line-height: 1.6;
+    .ct-row__name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--charcoal);
+      letter-spacing: 0.01em;
+    }
+
+    .ct-row__col {
+      padding: 24px 28px;
+      font-size: 13.5px;
+      line-height: 1.65;
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 14px;
     }
-    .ba-card--before {
-      background: rgba(155,68,68,0.06);
-      border: 1px solid rgba(155,68,68,0.15);
-      color: #6B3333;
+    .ct-row__col--before {
+      color: #7A4040;
+      border-left: 1px solid var(--light-border);
+      background: rgba(155,68,68,0.02);
     }
-    .ba-card--after {
-      background: rgba(127,141,116,0.09);
-      border: 1px solid rgba(127,141,116,0.25);
+    .ct-row__col--after {
       color: var(--sage-dark);
+      border-left: 1px solid var(--light-border);
+      background: rgba(127,141,116,0.03);
     }
-    .ba-card__icon {
-      font-size: 1rem;
+
+    /* CSS icons — no emojis */
+    .ct-icon {
       flex-shrink: 0;
-      margin-top: 2px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
     }
-    .ba-card__text { flex: 1; }
+    .ct-icon::before {
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .ct-icon--no {
+      background: rgba(155,68,68,0.1);
+      border: 1.5px solid rgba(155,68,68,0.25);
+    }
+    .ct-icon--no::before {
+      content: '—';
+      color: #9B4444;
+      font-size: 11px;
+    }
+    .ct-icon--yes {
+      background: rgba(127,141,116,0.12);
+      border: 1.5px solid rgba(127,141,116,0.3);
+    }
+    .ct-icon--yes::before {
+      content: '✓';
+      color: var(--sage-dark);
+      font-size: 11px;
+    }
 
-    /* CTA row */
-    .before-after-cta {
+    /* Footer */
+    .comparison-footer {
       text-align: center;
-      margin-top: 48px;
+      margin-top: 44px;
     }
-    .before-after-cta p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.2rem, 3vw, 1.55rem);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--charcoal);
-      margin-bottom: 24px;
+    .comparison-footer__note {
+      font-size: 12px;
+      color: var(--mid);
+      margin-top: 12px;
     }
 
-    @media (max-width: 540px) {
-      .ba-headers { grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 16px; }
-      .before-after-grid { padding: 0 16px; gap: 8px; }
-      .ba-row { gap: 8px; }
-      .ba-card { padding: 14px 14px; font-size: 0.82rem; }
+    /* Mobile */
+    @media (max-width: 767px) {
+      .ct-head { grid-template-columns: 1fr 1fr; }
+      .ct-head__topic { display: none; }
+      .ct-row { grid-template-columns: 1fr 1fr; gap: 0; }
+      .ct-row__topic { display: none; }
+      .ct-row__col { padding: 16px 16px; font-size: 12.5px; gap: 10px; }
+      .ct-icon { width: 16px; height: 16px; }
+      .ct-icon--no::before, .ct-icon--yes::before { font-size: 9px; }
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -916,6 +989,15 @@
       font-size: 1.4rem;
       margin-bottom: 12px;
       display: block;
+    }
+    .pain-card__num {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--sand);
+      margin-bottom: 14px;
     }
 
     .pain-card h3 {
@@ -2002,7 +2084,6 @@
   <section class="hero">
     <div class="container">
       <div class="hero__eyebrow" data-animate>
-        <span class="hero__eyebrow-icon">💍</span>
         Your Wedding Planner, in a Book
       </div>
 
@@ -2052,17 +2133,14 @@
         </div>
         <div class="trust-strip__divider"></div>
         <div class="trust-strip__block">
-          <span class="trust-strip__icon">💑</span>
           <span class="trust-strip__text"><strong>11,209+</strong> couples planned their wedding with Ubelia</span>
         </div>
         <div class="trust-strip__divider"></div>
         <div class="trust-strip__block">
-          <span class="trust-strip__icon">⚡</span>
           <span class="trust-strip__text"><strong>Instant download</strong> — access in under 60 seconds</span>
         </div>
         <div class="trust-strip__divider"></div>
         <div class="trust-strip__block">
-          <span class="trust-strip__icon">🔒</span>
           <span class="trust-strip__text"><strong>Secure checkout</strong> — Stripe encrypted</span>
         </div>
       </div>
@@ -2076,7 +2154,7 @@
     <div class="container">
       <div class="urgency-banner__inner">
         <div class="urgency-banner__left">
-          <span class="urgency-banner__tag">🔥 Launch Offer</span>
+          <span class="urgency-banner__tag">Limited Offer</span>
           <p class="urgency-banner__headline">Get the Complete Wedding Guide at Launch Price</p>
           <p class="urgency-banner__sub">This offer expires when the timer hits zero. Price goes back to <s>$36</s> after.</p>
         </div>
@@ -2116,7 +2194,7 @@
     <div class="container">
       <div class="sheets-callout__inner">
         <div data-animate>
-          <span class="sheets-callout__badge">🟢 Included Free</span>
+          <span class="sheets-callout__badge">Included Free</span>
           <h2><strong>33 Automated Google Sheets</strong> — Your Secret Weapon</h2>
           <p class="sheets-callout__desc">
             This is your strongest planning tool and it comes free with the guide. Pre-built formulas that handle every calculation automatically. Open it, add your numbers, everything does itself.
@@ -2131,23 +2209,23 @@
         </div>
         <div class="sheets-callout__visual" data-animate>
           <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">💰 Wedding Budget</span>
+            <span class="sheet-preview-row__name">Wedding Budget</span>
             <span class="sheet-preview-row__tag">Auto-calculates</span>
           </div>
           <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">👥 Guest List</span>
+            <span class="sheet-preview-row__name">Guest List</span>
             <span class="sheet-preview-row__tag">Up to 1,000</span>
           </div>
           <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">🏛️ Venue Comparison</span>
+            <span class="sheet-preview-row__name">Venue Comparison</span>
             <span class="sheet-preview-row__tag">Scores & ranks</span>
           </div>
           <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">📅 Day-Of Timeline</span>
+            <span class="sheet-preview-row__name">Day-Of Timeline</span>
             <span class="sheet-preview-row__tag">Auto-adjusts</span>
           </div>
           <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">💌 Thank-You Tracker</span>
+            <span class="sheet-preview-row__name">Thank-You Tracker</span>
             <span class="sheet-preview-row__tag">+ 29 more sheets</span>
           </div>
         </div>
@@ -2156,87 +2234,131 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════
-       2b. BEFORE / AFTER
+       2b. COMPARISON TABLE
   ══════════════════════════════════════════════════════════════ -->
-  <section class="before-after-section">
+  <section class="comparison-section">
     <div class="container">
 
-      <div class="before-after-section__header" data-animate>
+      <div class="comparison-header" data-animate>
         <span class="label">The Difference</span>
-        <h2>This Is What Planning Looks Like With Ubelia</h2>
+        <h2>Why Couples Who Use Ubelia Plan Better</h2>
+        <p class="comparison-header__sub">Every row below is a real situation engaged couples face. Here's what changes when you have the right system.</p>
       </div>
 
-      <!-- Column labels -->
-      <div class="ba-headers">
-        <div class="ba-col-label ba-col-label--before">❌ Without a system</div>
-        <div class="ba-col-label ba-col-label--after">✅ With Ubelia</div>
+      <div class="comparison-table" data-animate>
+
+        <!-- Table header -->
+        <div class="ct-head">
+          <div class="ct-head__topic">The situation</div>
+          <div class="ct-head__col ct-head__col--before">
+            <span class="ct-head__label">Without a system</span>
+          </div>
+          <div class="ct-head__col ct-head__col--after">
+            <span class="ct-head__label">With Ubelia</span>
+          </div>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="ct-row">
+          <div class="ct-row__topic">
+            <span class="ct-row__num">01</span>
+            <span class="ct-row__name">Organisation</span>
+          </div>
+          <div class="ct-row__col ct-row__col--before">
+            <span class="ct-icon ct-icon--no"></span>
+            Scattered across browser tabs, group chats, screenshots, and a notes app you forgot existed
+          </div>
+          <div class="ct-row__col ct-row__col--after">
+            <span class="ct-icon ct-icon--yes"></span>
+            One integrated system — every vendor, every deadline, every decision in one place, accessible from any device
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="ct-row">
+          <div class="ct-row__topic">
+            <span class="ct-row__num">02</span>
+            <span class="ct-row__name">Getting started</span>
+          </div>
+          <div class="ct-row__col ct-row__col--before">
+            <span class="ct-icon ct-icon--no"></span>
+            Staring at a blank page, paralysed by the volume of decisions and not knowing which one comes first
+          </div>
+          <div class="ct-row__col ct-row__col--after">
+            <span class="ct-icon ct-icon--yes"></span>
+            A 12-month countdown that tells you exactly what to do first, second, and third — based on your wedding date
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="ct-row">
+          <div class="ct-row__topic">
+            <span class="ct-row__num">03</span>
+            <span class="ct-row__name">Budget control</span>
+          </div>
+          <div class="ct-row__col ct-row__col--before">
+            <span class="ct-icon ct-icon--no"></span>
+            Discovering you're $8,000 over budget after visiting three venues and signing a catering contract
+          </div>
+          <div class="ct-row__col ct-row__col--after">
+            <span class="ct-icon ct-icon--yes"></span>
+            Real-time Estimate vs. Actual vs. Variance tracking — you see overruns the moment they happen, before contracts are signed
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="ct-row">
+          <div class="ct-row__topic">
+            <span class="ct-row__num">04</span>
+            <span class="ct-row__name">Vendor negotiation</span>
+          </div>
+          <div class="ct-row__col ct-row__col--before">
+            <span class="ct-icon ct-icon--no"></span>
+            Accepting the first quote because you don't know what's negotiable or how to push back professionally
+          </div>
+          <div class="ct-row__col ct-row__col--after">
+            <span class="ct-icon ct-icon--yes"></span>
+            Word-for-word negotiation scripts and a vendor comparison framework — couples save an average of 15–22% on bookings
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="ct-row">
+          <div class="ct-row__topic">
+            <span class="ct-row__num">05</span>
+            <span class="ct-row__name">Shared planning</span>
+          </div>
+          <div class="ct-row__col ct-row__col--before">
+            <span class="ct-icon ct-icon--no"></span>
+            Carrying everything in your head while your partner asks "what can I do?" and you have no answer
+          </div>
+          <div class="ct-row__col ct-row__col--after">
+            <span class="ct-icon ct-icon--yes"></span>
+            Shareable sheets with assigned tasks — your partner, mum, or maid of honor can contribute without asking you first
+          </div>
+        </div>
+
+        <!-- Row 6 -->
+        <div class="ct-row ct-row--highlight">
+          <div class="ct-row__topic">
+            <span class="ct-row__num">06</span>
+            <span class="ct-row__name">Cost of planning</span>
+          </div>
+          <div class="ct-row__col ct-row__col--before">
+            <span class="ct-icon ct-icon--no"></span>
+            Paying $1,500–$3,500 for a wedding planner to give you access to the same checklists, timelines, and scripts
+          </div>
+          <div class="ct-row__col ct-row__col--after">
+            <span class="ct-icon ct-icon--yes"></span>
+            Every tool a professional planner uses — for $9.99. One payment, instant access, yours to keep forever
+          </div>
+        </div>
+
       </div>
 
-      <!-- 4 rows -->
-      <div class="before-after-grid">
-
-        <div class="ba-row" data-animate>
-          <div class="ba-card ba-card--before">
-            <span class="ba-card__icon">❌</span>
-            <span class="ba-card__text">Scattered across 14 browser tabs, three chats, and a notes app you forgot about</span>
-          </div>
-          <div class="ba-card ba-card--after">
-            <span class="ba-card__icon">✅</span>
-            <span class="ba-card__text">One complete system — every vendor, deadline, and decision in one place</span>
-          </div>
-        </div>
-
-        <div class="ba-row" data-animate>
-          <div class="ba-card ba-card--before">
-            <span class="ba-card__icon">❌</span>
-            <span class="ba-card__text">Staring at a blank template wondering what to do first</span>
-          </div>
-          <div class="ba-card ba-card--after">
-            <span class="ba-card__icon">✅</span>
-            <span class="ba-card__text">Pre-filled timelines and suggested tasks that tell you exactly what comes next</span>
-          </div>
-        </div>
-
-        <div class="ba-row" data-animate>
-          <div class="ba-card ba-card--before">
-            <span class="ba-card__icon">❌</span>
-            <span class="ba-card__text">Touring three venues before realizing you're $8,000 over budget</span>
-          </div>
-          <div class="ba-card ba-card--after">
-            <span class="ba-card__icon">✅</span>
-            <span class="ba-card__text">A budget tracker with estimate vs. actual vs. variance — you see overruns before they happen</span>
-          </div>
-        </div>
-
-        <div class="ba-row" data-animate>
-          <div class="ba-card ba-card--before">
-            <span class="ba-card__icon">❌</span>
-            <span class="ba-card__text">Carrying the entire wedding on your shoulders</span>
-          </div>
-          <div class="ba-card ba-card--after">
-            <span class="ba-card__icon">✅</span>
-            <span class="ba-card__text">Shareable sheets + delegation pages so your partner and family can actually help</span>
-          </div>
-        </div>
-
-        <!-- Fix 12 — Money row -->
-        <div class="ba-row" data-animate>
-          <div class="ba-card ba-card--before">
-            <span class="ba-card__icon">❌</span>
-            <span class="ba-card__text">Paying $2,100+ for a wedding planner just to feel organised</span>
-          </div>
-          <div class="ba-card ba-card--after">
-            <span class="ba-card__icon">✅</span>
-            <span class="ba-card__text">Planner-level organisation for $9.99 — every checklist, script, and tracker a pro would use</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- CTA -->
-      <div class="before-after-cta" data-animate>
-        <p>"Stop managing the chaos. Start finishing the checklist."</p>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get My Wedding Guide — $9.99</a>
+      <div class="comparison-footer" data-animate>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get the Complete System — $9.99</a>
+        <p class="comparison-footer__note">Instant download &middot; PDF + 33 Google Sheets &middot; Works on any device</p>
       </div>
 
     </div>
@@ -2371,32 +2493,32 @@
 
       <div class="pain-grid" data-animate>
         <div class="pain-card">
-          <span class="pain-card__emoji">📋</span>
+          <span class="pain-card__num">01</span>
           <h3>Complete Checklist System</h3>
           <p>Never miss a detail — every task, deadline and decision organized in one place.</p>
         </div>
         <div class="pain-card">
-          <span class="pain-card__emoji">💰</span>
+          <span class="pain-card__num">02</span>
           <h3>Budget Under Control</h3>
           <p>Visual budget tracker and 33 automated sheets keep you on target without spreadsheet stress.</p>
         </div>
         <div class="pain-card">
-          <span class="pain-card__emoji">🤝</span>
+          <span class="pain-card__num">03</span>
           <h3>Vendor Guidance</h3>
           <p>Expert scripts and comparison frameworks so you negotiate confidently and choose wisely.</p>
         </div>
         <div class="pain-card">
-          <span class="pain-card__emoji">💍</span>
+          <span class="pain-card__num">04</span>
           <h3>Vow Templates</h3>
           <p>Say exactly what you mean — fill-in frameworks and real examples for every style and tone.</p>
         </div>
         <div class="pain-card">
-          <span class="pain-card__emoji">📅</span>
+          <span class="pain-card__num">05</span>
           <h3>Smart Timeline</h3>
           <p>12-month countdown so every payment and booking happens exactly when it should.</p>
         </div>
         <div class="pain-card">
-          <span class="pain-card__emoji">✨</span>
+          <span class="pain-card__num">06</span>
           <h3>Trend Report 2026</h3>
           <p>Current trend reports and real couple case studies so your wedding feels genuinely you.</p>
         </div>
@@ -2599,7 +2721,7 @@
           </div>
           <div style="width:1px; height:40px; background:var(--light-border);"></div>
           <div style="text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">4.9★</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">4.9 / 5</div>
             <div style="font-size:12px; color:var(--mid); margin-top:2px;">Average rating</div>
           </div>
           <div style="width:1px; height:40px; background:var(--light-border);"></div>
@@ -2790,7 +2912,7 @@
         <!-- SITUATIONS / PROBLEM-AWARE -->
         <div class="faq-item">
           <button class="faq-q">
-            <span class="faq-q__tag">📍 Situation</span>
+            <span class="faq-q__tag">Situation</span>
             <span>"We just got engaged and I have no idea where to even start. There's so much to do and it already feels overwhelming."</span>
             <span class="faq-icon">+</span>
           </button>
@@ -2803,7 +2925,7 @@
 
         <div class="faq-item">
           <button class="faq-q">
-            <span class="faq-q__tag">📍 Situation</span>
+            <span class="faq-q__tag">Situation</span>
             <span>"We set a budget. Then quotes came in and it exploded. Now I don't know what we can actually afford."</span>
             <span class="faq-icon">+</span>
           </button>
@@ -2816,7 +2938,7 @@
 
         <div class="faq-item">
           <button class="faq-q">
-            <span class="faq-q__tag">📍 Situation</span>
+            <span class="faq-q__tag">Situation</span>
             <span>"I'm handling most of the planning alone while my partner works full time. It's becoming a second job."</span>
             <span class="faq-icon">+</span>
           </button>
@@ -2829,7 +2951,7 @@
 
         <div class="faq-item">
           <button class="faq-q">
-            <span class="faq-q__tag">📍 Situation</span>
+            <span class="faq-q__tag">Situation</span>
             <span>"We're 4 months away and still haven't booked half our vendors. We feel behind and panicked."</span>
             <span class="faq-icon">+</span>
           </button>
@@ -2843,7 +2965,7 @@
         <!-- VS. WEDDING PLANNER -->
         <div class="faq-item">
           <button class="faq-q">
-            <span class="faq-q__tag">⚖️ vs. Planner</span>
+            <span class="faq-q__tag">vs. Planner</span>
             <span>"What's the real difference between Ubelia and hiring a wedding planner?"</span>
             <span class="faq-icon">+</span>
           </button>
@@ -2856,7 +2978,7 @@
 
         <div class="faq-item">
           <button class="faq-q">
-            <span class="faq-q__tag">⚖️ vs. Planner</span>
+            <span class="faq-q__tag">vs. Planner</span>
             <span>"I already have Pinterest boards, free checklists, and YouTube tutorials. Why isn't that enough?"</span>
             <span class="faq-icon">+</span>
           </button>
@@ -2870,7 +2992,7 @@
         <!-- WHY IT WORKS -->
         <div class="faq-item">
           <button class="faq-q">
-            <span class="faq-q__tag">✅ Why it works</span>
+            <span class="faq-q__tag">Why it works</span>
             <span>"I'm not a spreadsheet person at all. Will I actually be able to use this?"</span>
             <span class="faq-icon">+</span>
           </button>
@@ -2883,7 +3005,7 @@
 
         <div class="faq-item">
           <button class="faq-q">
-            <span class="faq-q__tag">✅ Why it works</span>
+            <span class="faq-q__tag">Why it works</span>
             <span>"We're planning a destination wedding abroad. Is this still relevant for us?"</span>
             <span class="faq-icon">+</span>
           </button>
