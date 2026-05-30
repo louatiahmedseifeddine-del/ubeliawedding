@@ -44,7 +44,7 @@
       color: var(--charcoal);
       line-height: 1.6;
       overflow-x: hidden;
-      padding-bottom: 76px; /* clearance for sticky bar */
+      padding-bottom: 120px; /* clearance for sticky + countdown bars */
     }
 
     img { display: block; max-width: 100%; height: auto; }
@@ -126,11 +126,6 @@
        0. STICKY BOTTOM BAR
     ════════════════════════════════════════════════════════════════ */
     .sticky-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
       background: #fff;
       border-top: 1px solid var(--light-border);
       box-shadow: 0 -4px 24px rgba(0,0,0,0.07);
@@ -2177,6 +2172,77 @@
       .preview-strip--budget .preview-card { width: 340px; }
       .preview-strip--budget .preview-card__img { width: 340px; height: 220px; }
     }
+    /* ════════════════════════════════════════════════════════════════
+       FIXED BOTTOM BARS (countdown + sticky)
+    ════════════════════════════════════════════════════════════════ */
+    .fixed-bottom-bars {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+    }
+    .countdown-bar {
+      background: #1C1A17;
+      border-top: 1px solid rgba(196,168,130,0.2);
+      padding: 7px 16px;
+    }
+    .countdown-bar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      max-width: 1120px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .countdown-bar__text {
+      font-size: 11px;
+      color: rgba(255,248,238,0.5);
+      letter-spacing: 0.04em;
+    }
+    .countdown-bar__timer {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: #C4A882;
+    }
+    .countdown-bar__sep {
+      font-size: 11px;
+      color: rgba(196,168,130,0.4);
+      margin: 0 2px;
+    }
+    .countdown-bar__price {
+      font-size: 12px;
+      color: rgba(255,248,238,0.5);
+    }
+    .countdown-bar__price strong {
+      color: #C9845A;
+      font-weight: 600;
+    }
+    .countdown-bar__cta {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #1C1A17;
+      background: #C4A882;
+      padding: 5px 14px;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .countdown-bar__cta:hover { background: #C9845A; color: #fff; }
+    @media (max-width: 600px) {
+      .countdown-bar__text { display: none; }
+      .countdown-bar__inner { gap: 10px; }
+    }
   </style>
   <script src="https://js.stripe.com/v3/"></script>
   <!-- Microsoft Clarity -->
@@ -2191,16 +2257,30 @@
 <body>
 
   <!-- ══════════════════════════════════════════════════════════════
-       0. STICKY BOTTOM BAR
+       0. FIXED BOTTOM BARS (countdown + sticky)
   ══════════════════════════════════════════════════════════════ -->
-  <div class="sticky-bar">
-    <div class="sticky-bar__price">
-      <span class="sticky-bar__old">$67</span>
-      <span class="sticky-bar__new">$36</span>
-      <span class="sticky-bar__only">only</span>
+  <div class="fixed-bottom-bars">
+    <div class="countdown-bar">
+      <div class="countdown-bar__inner">
+        <span class="countdown-bar__text">Launch offer expires in:</span>
+        <div class="countdown-bar__timer">
+          <span id="cdHours">23</span><span class="countdown-bar__sep">h</span>
+          <span id="cdMinutes">59</span><span class="countdown-bar__sep">m</span>
+          <span id="cdSeconds">59</span><span class="countdown-bar__sep">s</span>
+        </div>
+        <span class="countdown-bar__price">$67 &rarr; <strong>$36</strong></span>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="countdown-bar__cta">Get Access</a>
+      </div>
     </div>
-    <!-- REPLACE_WITH: https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X -->
-    <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-pill">Start Planning Now — $36</a>
+    <div class="sticky-bar">
+      <div class="sticky-bar__price">
+        <span class="sticky-bar__old">$67</span>
+        <span class="sticky-bar__new">$36</span>
+        <span class="sticky-bar__only">only</span>
+      </div>
+      <!-- REPLACE_WITH: https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X -->
+      <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-pill">Start Planning Now — $36</a>
+    </div>
   </div>
 
   <!-- ══════════════════════════════════════════════════════════════
@@ -2314,11 +2394,11 @@
             <span class="trust-strip__label">out of 5</span>
           </div>
           <span class="trust-strip__sep">·</span>
-          <span class="trust-strip__text">3,587 verified reviews</span>
+          <span class="trust-strip__text">6,279 verified reviews</span>
         </div>
         <div class="trust-strip__divider"></div>
         <div class="trust-strip__block">
-          <span class="trust-strip__text"><strong>11,209+</strong> couples planned their wedding with Ubelia</span>
+          <span class="trust-strip__text"><strong>6,279+</strong> couples planned their wedding with Ubelia</span>
         </div>
         <div class="trust-strip__divider"></div>
         <div class="trust-strip__block">
@@ -2327,101 +2407,6 @@
         <div class="trust-strip__divider"></div>
         <div class="trust-strip__block">
           <span class="trust-strip__text"><strong>Secure checkout</strong> — Stripe encrypted</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       2b. URGENCY BANNER — Countdown Timer (Fix 6)
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="urgency-banner">
-    <div class="container">
-      <div class="urgency-banner__inner">
-        <div class="urgency-banner__left">
-          <span class="urgency-banner__tag">Limited Offer</span>
-          <p class="urgency-banner__headline">Get the Complete Wedding Guide at Launch Price</p>
-          <p class="urgency-banner__sub">This offer expires when the timer hits zero. Price goes back to <s>$67</s> after.</p>
-        </div>
-        <div class="urgency-banner__center">
-          <div class="urgency-timer">
-            <div class="urgency-timer__block">
-              <span class="urgency-timer__num" id="cdHours">23</span>
-              <span class="urgency-timer__unit">hours</span>
-            </div>
-            <span class="urgency-timer__colon">:</span>
-            <div class="urgency-timer__block">
-              <span class="urgency-timer__num" id="cdMinutes">59</span>
-              <span class="urgency-timer__unit">mins</span>
-            </div>
-            <span class="urgency-timer__colon">:</span>
-            <div class="urgency-timer__block">
-              <span class="urgency-timer__num" id="cdSeconds">59</span>
-              <span class="urgency-timer__unit">secs</span>
-            </div>
-          </div>
-        </div>
-        <div class="urgency-banner__right">
-          <div class="urgency-price">
-            <span class="urgency-price__old">$67</span>
-            <span class="urgency-price__new">$36</span>
-          </div>
-          <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary urgency-banner__cta">Claim Offer Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
-       2c. GOOGLE SHEETS CALLOUT (Fix 11)
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="sheets-callout">
-    <div class="container">
-      <div class="sheets-callout__inner">
-        <div data-animate>
-          <span class="sheets-callout__badge">Included Free</span>
-          <h2><strong>33 Automated Google Sheets</strong> — Your Secret Weapon</h2>
-          <div class="expert-note" style="margin-bottom:20px;margin-left:0;margin-right:0;max-width:100%;">
-            <div class="expert-note__icon">
-              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <div class="expert-note__body">
-              <span class="expert-note__label">Why automated tracking matters</span>
-              <p class="expert-note__text">Professional planners charge $1,500–$3,500 partly for access to the same connected tracking systems we've built here. <strong>The real value is not the spreadsheet itself — it's that every tool talks to the others.</strong> When your guest count changes, your catering budget updates automatically. When a vendor quote comes in, the comparison ranks it instantly. Manual tracking in separate documents is where budget overruns are born.</p>
-            </div>
-          </div>
-          <p class="sheets-callout__desc">
-            This is your strongest planning tool and it comes free with the guide. Pre-built formulas that handle every calculation automatically. Open it, add your numbers, everything does itself.
-          </p>
-          <div class="sheets-callout__points">
-            <div class="sheets-callout__point">Budget tracker with estimate vs. actual vs. variance — see overruns before they happen</div>
-            <div class="sheets-callout__point">Guest list that handles up to 1,000 guests with seating auto-sort</div>
-            <div class="sheets-callout__point">Vendor comparison that scores each quote on price, reviews, and availability</div>
-            <div class="sheets-callout__point">Day-of timeline that auto-adjusts when one thing runs late</div>
-          </div>
-          <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get All 33 Sheets — $36</a>
-        </div>
-        <div class="sheets-callout__visual" data-animate>
-          <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">Wedding Budget</span>
-            <span class="sheet-preview-row__tag">Auto-calculates</span>
-          </div>
-          <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">Guest List</span>
-            <span class="sheet-preview-row__tag">Up to 1,000</span>
-          </div>
-          <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">Venue Comparison</span>
-            <span class="sheet-preview-row__tag">Scores & ranks</span>
-          </div>
-          <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">Day-Of Timeline</span>
-            <span class="sheet-preview-row__tag">Auto-adjusts</span>
-          </div>
-          <div class="sheet-preview-row">
-            <span class="sheet-preview-row__name">Thank-You Tracker</span>
-            <span class="sheet-preview-row__tag">+ 29 more sheets</span>
-          </div>
         </div>
       </div>
     </div>
@@ -2565,6 +2550,61 @@
         <p class="comparison-footer__note">Instant download &middot; PDF + 33 Google Sheets &middot; Works on any device</p>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       2c. GOOGLE SHEETS CALLOUT (Fix 11)
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="sheets-callout">
+    <div class="container">
+      <div class="sheets-callout__inner">
+        <div data-animate>
+          <span class="sheets-callout__badge">Included Free</span>
+          <h2><strong>33 Automated Google Sheets</strong> — Your Secret Weapon</h2>
+          <div class="expert-note" style="margin-bottom:20px;margin-left:0;margin-right:0;max-width:100%;">
+            <div class="expert-note__icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="expert-note__body">
+              <span class="expert-note__label">Why automated tracking matters</span>
+              <p class="expert-note__text">Professional planners charge $1,500–$3,500 partly for access to the same connected tracking systems we've built here. <strong>The real value is not the spreadsheet itself — it's that every tool talks to the others.</strong> When your guest count changes, your catering budget updates automatically. When a vendor quote comes in, the comparison ranks it instantly. Manual tracking in separate documents is where budget overruns are born.</p>
+            </div>
+          </div>
+          <p class="sheets-callout__desc">
+            This is your strongest planning tool and it comes free with the guide. Pre-built formulas that handle every calculation automatically. Open it, add your numbers, everything does itself.
+          </p>
+          <div class="sheets-callout__points">
+            <div class="sheets-callout__point">Budget tracker with estimate vs. actual vs. variance — see overruns before they happen</div>
+            <div class="sheets-callout__point">Guest list that handles up to 1,000 guests with seating auto-sort</div>
+            <div class="sheets-callout__point">Vendor comparison that scores each quote on price, reviews, and availability</div>
+            <div class="sheets-callout__point">Day-of timeline that auto-adjusts when one thing runs late</div>
+          </div>
+          <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get All 33 Sheets — $36</a>
+        </div>
+        <div class="sheets-callout__visual" data-animate>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">Wedding Budget</span>
+            <span class="sheet-preview-row__tag">Auto-calculates</span>
+          </div>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">Guest List</span>
+            <span class="sheet-preview-row__tag">Up to 1,000</span>
+          </div>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">Venue Comparison</span>
+            <span class="sheet-preview-row__tag">Scores & ranks</span>
+          </div>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">Day-Of Timeline</span>
+            <span class="sheet-preview-row__tag">Auto-adjusts</span>
+          </div>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">Thank-You Tracker</span>
+            <span class="sheet-preview-row__tag">+ 29 more sheets</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2745,55 +2785,6 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════
-       5. SECTIONS INCLUDED
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="included-section">
-    <div class="container">
-      <div class="included-section__header" data-animate>
-        <span class="label">What's Included</span>
-        <h2>Everything in One Guide</h2>
-        <p class="included-section__sub">
-          96 beautifully designed pages covering every aspect of your wedding — from
-          your first budget to your last thank-you note.
-        </p>
-      </div>
-
-      <div class="expert-note" data-animate>
-        <div class="expert-note__icon">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="expert-note__body">
-          <span class="expert-note__label">Why comprehensive beats piecemeal</span>
-          <p class="expert-note__text">A wedding involves roughly 200 individual decisions between engagement and honeymoon. Most couples track fewer than 40 of them formally — the rest are managed by memory, which is why things get missed. <strong>Completeness is not about covering everything — it's about ensuring the expensive decisions are never made without the right context.</strong> Every item in this guide was included because its absence creates a specific, recurring problem that we've seen couples face.</p>
-        </div>
-      </div>
-
-      <div class="included-grid" data-animate>
-        <div class="included-item">Complete Planning Timeline (12 months)</div>
-        <div class="included-item">33 Budget Spreadsheet Templates</div>
-        <div class="included-item">Vendor Selection Checklists</div>
-        <div class="included-item">Vow &amp; Speech Writing Templates</div>
-        <div class="included-item">Guest List &amp; Seating Management</div>
-        <div class="included-item">Venue Comparison Framework</div>
-        <div class="included-item">Catering &amp; Menu Planner</div>
-        <div class="included-item">Day-Of Itinerary Builder</div>
-        <div class="included-item">Ceremony &amp; Reception Scripts</div>
-        <div class="included-item">Packing &amp; Logistics Checklist</div>
-        <div class="included-item">Photography Shot List</div>
-        <div class="included-item">Gifts &amp; Thank-You Tracker</div>
-        <div class="included-item">Honeymoon Budget Planner</div>
-        <div class="included-item">2026 Wedding Trend Report</div>
-        <div class="included-item">Real Couple Case Studies</div>
-        <div class="included-item">19 Expert Pro Tips</div>
-      </div>
-
-      <div class="cta-block" data-animate>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Yes, I Want This — $36</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
        6b. PLANNING EDUCATION — 5 Expensive Mistakes
   ══════════════════════════════════════════════════════════════ -->
   <section class="mistakes-section">
@@ -2878,6 +2869,55 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════
+       5. SECTIONS INCLUDED
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="included-section">
+    <div class="container">
+      <div class="included-section__header" data-animate>
+        <span class="label">What's Included</span>
+        <h2>Everything in One Guide</h2>
+        <p class="included-section__sub">
+          96 beautifully designed pages covering every aspect of your wedding — from
+          your first budget to your last thank-you note.
+        </p>
+      </div>
+
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">Why comprehensive beats piecemeal</span>
+          <p class="expert-note__text">A wedding involves roughly 200 individual decisions between engagement and honeymoon. Most couples track fewer than 40 of them formally — the rest are managed by memory, which is why things get missed. <strong>Completeness is not about covering everything — it's about ensuring the expensive decisions are never made without the right context.</strong> Every item in this guide was included because its absence creates a specific, recurring problem that we've seen couples face.</p>
+        </div>
+      </div>
+
+      <div class="included-grid" data-animate>
+        <div class="included-item">Complete Planning Timeline (12 months)</div>
+        <div class="included-item">33 Budget Spreadsheet Templates</div>
+        <div class="included-item">Vendor Selection Checklists</div>
+        <div class="included-item">Vow &amp; Speech Writing Templates</div>
+        <div class="included-item">Guest List &amp; Seating Management</div>
+        <div class="included-item">Venue Comparison Framework</div>
+        <div class="included-item">Catering &amp; Menu Planner</div>
+        <div class="included-item">Day-Of Itinerary Builder</div>
+        <div class="included-item">Ceremony &amp; Reception Scripts</div>
+        <div class="included-item">Packing &amp; Logistics Checklist</div>
+        <div class="included-item">Photography Shot List</div>
+        <div class="included-item">Gifts &amp; Thank-You Tracker</div>
+        <div class="included-item">Honeymoon Budget Planner</div>
+        <div class="included-item">2026 Wedding Trend Report</div>
+        <div class="included-item">Real Couple Case Studies</div>
+        <div class="included-item">19 Expert Pro Tips</div>
+      </div>
+
+      <div class="cta-block" data-animate>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Yes, I Want This — $36</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
        7. TESTIMONIALS
   ══════════════════════════════════════════════════════════════ -->
   <section class="testimonials-section">
@@ -2899,7 +2939,7 @@
         <div class="testi-rating">
           <span class="testi-rating__stars">★★★★★</span>
           <span class="testi-rating__score">4.9</span>
-          <span class="testi-rating__label">based on 3,587 reviews</span>
+          <span class="testi-rating__label">based on 6,279 reviews</span>
         </div>
       </div>
     </div>
@@ -3016,42 +3056,6 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════
-       7b. BRAND STORY (Fix 13)
-  ══════════════════════════════════════════════════════════════ -->
-  <section style="background:#fff; padding:72px 0; border-top:1px solid var(--light-border);">
-    <div class="container">
-      <div style="max-width:680px; margin:0 auto; text-align:center;" data-animate>
-        <span class="label">About Ubelia</span>
-        <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.4rem); font-weight:400; color:var(--charcoal); margin-bottom:24px; line-height:1.2;">
-          Built by Two People Obsessed With Making This Easier
-        </h2>
-        <p style="font-size:16px; color:var(--mid); line-height:1.85; margin-bottom:18px;">
-          Ubelia was built by two people obsessed with helping couples feel in control of their wedding — without paying for a planner. We went deep on every part of the planning process: budgets, vendors, vows, the lot — and put it all in one place.
-        </p>
-        <p style="font-size:15px; color:var(--mid); line-height:1.75; margin-bottom:28px;">
-          We didn't want a generic template. We wanted the kind of system that actually accounts for the reality of planning — the 2am panic, the surprise costs, the vendors who quote one thing and charge another. Every sheet, every checklist, every script in this guide was built around one question: <em style="color:var(--charcoal);">what would have saved us the most stress?</em>
-        </p>
-        <div style="display:inline-flex; align-items:center; gap:32px; flex-wrap:wrap; justify-content:center; padding:20px 32px; background:var(--cream); border-radius:var(--radius-lg); border:1px solid var(--light-border);">
-          <div style="text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">11,209+</div>
-            <div style="font-size:12px; color:var(--mid); margin-top:2px;">Couples worldwide</div>
-          </div>
-          <div style="width:1px; height:40px; background:var(--light-border);"></div>
-          <div style="text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">4.9 / 5</div>
-            <div style="font-size:12px; color:var(--mid); margin-top:2px;">Average rating</div>
-          </div>
-          <div style="width:1px; height:40px; background:var(--light-border);"></div>
-          <div style="text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">$36</div>
-            <div style="font-size:12px; color:var(--mid); margin-top:2px;">vs. $2,100 planner fee</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════════════
        8. BONUSES
   ══════════════════════════════════════════════════════════════ -->
   <section class="bonuses-section">
@@ -3136,6 +3140,42 @@
 
       <div class="cta-block" data-animate>
         <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $36</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       7b. BRAND STORY (Fix 13)
+  ══════════════════════════════════════════════════════════════ -->
+  <section style="background:#fff; padding:72px 0; border-top:1px solid var(--light-border);">
+    <div class="container">
+      <div style="max-width:680px; margin:0 auto; text-align:center;" data-animate>
+        <span class="label">About Ubelia</span>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.4rem); font-weight:400; color:var(--charcoal); margin-bottom:24px; line-height:1.2;">
+          Built by Two People Obsessed With Making This Easier
+        </h2>
+        <p style="font-size:16px; color:var(--mid); line-height:1.85; margin-bottom:18px;">
+          Ubelia was built by two people obsessed with helping couples feel in control of their wedding — without paying for a planner. We went deep on every part of the planning process: budgets, vendors, vows, the lot — and put it all in one place.
+        </p>
+        <p style="font-size:15px; color:var(--mid); line-height:1.75; margin-bottom:28px;">
+          We didn't want a generic template. We wanted the kind of system that actually accounts for the reality of planning — the 2am panic, the surprise costs, the vendors who quote one thing and charge another. Every sheet, every checklist, every script in this guide was built around one question: <em style="color:var(--charcoal);">what would have saved us the most stress?</em>
+        </p>
+        <div style="display:inline-flex; align-items:center; gap:32px; flex-wrap:wrap; justify-content:center; padding:20px 32px; background:var(--cream); border-radius:var(--radius-lg); border:1px solid var(--light-border);">
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">6,279+</div>
+            <div style="font-size:12px; color:var(--mid); margin-top:2px;">Couples worldwide</div>
+          </div>
+          <div style="width:1px; height:40px; background:var(--light-border);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">4.9 / 5</div>
+            <div style="font-size:12px; color:var(--mid); margin-top:2px;">Average rating</div>
+          </div>
+          <div style="width:1px; height:40px; background:var(--light-border);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">$36</div>
+            <div style="font-size:12px; color:var(--mid); margin-top:2px;">vs. $2,100 planner fee</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
