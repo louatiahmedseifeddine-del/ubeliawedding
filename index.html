@@ -339,67 +339,237 @@
       color: var(--mid);
     }
 
-    /* ── Pain Mirror & Bridge (Fix 1+2) ── */
-    .hero__pain-mirror {
+    /* ════════════════════════════════════════════════════════════════
+       1b. EMPATHY SECTION (Fix 1 + Fix 2)
+    ════════════════════════════════════════════════════════════════ */
+    .empathy-section {
+      background: var(--charcoal);
+      padding: 72px 0;
+    }
+    .empathy-section__inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    @media (max-width: 767px) {
+      .empathy-section__inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+    .empathy-section__mirror {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-      font-style: italic;
+      font-size: clamp(1.3rem, 2.8vw, 1.75rem);
       font-weight: 300;
-      color: var(--mid);
-      max-width: 640px;
-      margin: 0 auto 20px;
-      line-height: 1.75;
-      opacity: 0.9;
-    }
-    .hero__bridge {
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--charcoal);
-      background: rgba(127,141,116,0.07);
-      border-left: 3px solid var(--sage);
-      border-radius: 0 6px 6px 0;
-      padding: 14px 20px;
-      max-width: 600px;
-      margin: 0 auto 28px;
+      font-style: italic;
+      color: rgba(255,248,238,0.92);
       line-height: 1.7;
-      text-align: left;
+      margin-bottom: 24px;
     }
-
-    /* ── Trust Stars in Hero (Fix 3) ── */
-    .hero__trust-line {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      color: var(--mid);
-      margin-bottom: 20px;
-    }
-    .hero__trust-line .stars { color: #D4A843; font-size: 1rem; letter-spacing: 2px; }
-
-    /* ── Countdown Timer (Fix 6) ── */
-    .hero__countdown {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: rgba(201,132,90,0.08);
-      border: 1px solid rgba(201,132,90,0.25);
-      border-radius: 8px;
-      padding: 10px 20px;
-      margin-bottom: 18px;
-      font-size: 13px;
-      color: var(--charcoal);
-    }
-    .hero__countdown-label { font-weight: 500; color: var(--coral); }
-    .hero__timer {
+    .empathy-section__divider {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 1.1rem;
+      gap: 16px;
+      margin-bottom: 24px;
+      color: var(--sand);
+      font-size: 1rem;
+    }
+    .empathy-section__divider::before,
+    .empathy-section__divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(196,168,130,0.25);
+    }
+    .empathy-section__bridge {
+      font-size: 16px;
+      color: rgba(255,248,238,0.65);
+      line-height: 1.8;
+    }
+    .empathy-section__bridge strong {
+      color: var(--sand);
+      font-weight: 500;
+    }
+    .empathy-section__stat-col {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .empathy-stat {
+      border-left: 2px solid rgba(196,168,130,0.3);
+      padding-left: 20px;
+    }
+    .empathy-stat__num {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 400;
+      color: var(--sand);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .empathy-stat__label {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,248,238,0.5);
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       2a. TRUST STRIP (Fix 3)
+    ════════════════════════════════════════════════════════════════ */
+    .trust-strip {
+      background: #fff;
+      border-bottom: 1px solid var(--light-border);
+      padding: 20px 0;
+    }
+    .trust-strip__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .trust-strip__block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 28px;
+      font-size: 14px;
       color: var(--charcoal);
     }
-    .hero__timer-sep { color: var(--coral); font-weight: 700; }
+    .trust-strip__stars {
+      color: #D4A843;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      line-height: 1;
+    }
+    .trust-strip__big {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    .trust-strip__label { font-size: 12px; color: var(--mid); }
+    .trust-strip__sep { color: var(--light-border); font-size: 1.2rem; }
+    .trust-strip__text { font-size: 13px; color: var(--mid); }
+    .trust-strip__text strong { color: var(--charcoal); font-weight: 500; }
+    .trust-strip__icon { font-size: 1.1rem; }
+    .trust-strip__divider {
+      width: 1px;
+      height: 36px;
+      background: var(--light-border);
+      flex-shrink: 0;
+    }
+    @media (max-width: 767px) {
+      .trust-strip__divider { display: none; }
+      .trust-strip__block { padding: 8px 16px; }
+      .trust-strip__inner { justify-content: flex-start; }
+    }
+
+    /* ════════════════════════════════════════════════════════════════
+       2b. URGENCY BANNER (Fix 6)
+    ════════════════════════════════════════════════════════════════ */
+    .urgency-banner {
+      background: linear-gradient(135deg, var(--coral) 0%, #a8633c 100%);
+      padding: 36px 0;
+    }
+    .urgency-banner__inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .urgency-banner__inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+      }
+      .urgency-banner__right { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    }
+    .urgency-banner__tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+    .urgency-banner__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .urgency-banner__sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+    }
+    .urgency-banner__sub s { opacity: 0.7; }
+    .urgency-timer {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .urgency-timer__block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(0,0,0,0.2);
+      border-radius: 8px;
+      padding: 10px 16px;
+      min-width: 64px;
+    }
+    .urgency-timer__num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1;
+    }
+    .urgency-timer__unit {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-top: 4px;
+    }
+    .urgency-timer__colon {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 12px;
+    }
+    .urgency-price {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .urgency-price__old {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: line-through;
+    }
+    .urgency-price__new {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1;
+    }
+    .urgency-banner__cta {
+      background: #fff !important;
+      color: var(--coral) !important;
+      font-weight: 600 !important;
+    }
+    .urgency-banner__cta:hover {
+      background: var(--cream) !important;
+      transform: translateY(-1px);
+    }
 
     .hero__media {
       max-width: 520px;
@@ -1770,43 +1940,53 @@
   <!-- ══════════════════════════════════════════════════════════════
        2. HERO
   ══════════════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════════════
+       1b. EMPATHY SECTION — Pain Mirror + Category Bridge (Fix 1+2)
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="empathy-section">
+    <div class="container">
+      <div class="empathy-section__inner" data-animate>
+        <div class="empathy-section__text">
+          <p class="empathy-section__mirror">
+            You just got engaged. You're excited — and somehow already drowning in vendor quotes, Pinterest tabs, and budget panic. You haven't even picked a venue and it already feels like a second job.
+          </p>
+          <div class="empathy-section__divider">
+            <span>✦</span>
+          </div>
+          <p class="empathy-section__bridge">
+            Most couples try to manage everything across apps, screenshots, and group chats. It doesn't work. What actually works is <strong>one place — one system</strong> — where every decision, every vendor, every deadline lives together.
+          </p>
+        </div>
+        <div class="empathy-section__stat-col">
+          <div class="empathy-stat">
+            <span class="empathy-stat__num">73%</span>
+            <span class="empathy-stat__label">of couples say planning stress nearly overshadowed their excitement</span>
+          </div>
+          <div class="empathy-stat">
+            <span class="empathy-stat__num">$2,100</span>
+            <span class="empathy-stat__label">average cost of a wedding planner — for the same clarity you can have today</span>
+          </div>
+          <div class="empathy-stat">
+            <span class="empathy-stat__num">$9.99</span>
+            <span class="empathy-stat__label">everything a planner would give you, in one instant download</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       2. HERO
+  ══════════════════════════════════════════════════════════════ -->
   <section class="hero">
     <div class="container">
-      <!-- Fix 1 — Pain Mirror -->
-      <p class="hero__pain-mirror" data-animate>
-        You just got engaged. You're excited — and somehow already drowning in vendor quotes, Pinterest tabs, and budget panic. You haven't even picked a venue and it already feels like a second job.
-      </p>
-
-      <!-- Fix 2 — Category Bridge -->
-      <p class="hero__bridge" data-animate>
-        Most couples try to manage everything across apps, screenshots, and group chats. It doesn't work. What actually works is one place — one system — where every decision, every vendor, every deadline lives together.
-      </p>
-
       <div class="hero__eyebrow" data-animate>
         <span class="hero__eyebrow-icon">💍</span>
         Your Wedding Planner, in a Book
       </div>
 
       <h1 data-animate>Stop Wedding Planning Chaos</h1>
-
-      <!-- Fix 16 — Rewritten sub-headline -->
       <span class="hero__h1-line2" data-animate>The Closest Thing to Hiring a Wedding Planner — Without the $2,100 Bill.</span>
-
-      <!-- Fix 3 — Star rating in hero -->
-      <div class="hero__trust-line" data-animate>
-        <span class="stars">★★★★★</span>
-        <span>Loved by 3,500+ couples</span>
-      </div>
-
-      <!-- Fix 6 — Countdown timer -->
-      <div class="hero__countdown" data-animate>
-        <span class="hero__countdown-label">⏰ Launch offer ends in:</span>
-        <div class="hero__timer">
-          <span id="cdHours">23</span><span class="hero__timer-sep">h</span>
-          <span id="cdMinutes">59</span><span class="hero__timer-sep">m</span>
-          <span id="cdSeconds">59</span><span class="hero__timer-sep">s</span>
-        </div>
-      </div>
 
       <p class="hero__sub" data-animate>
         The complete 96-page guide &amp; 33 automated Google Sheets — planner-level organisation, budget expert structure, and ready-to-use templates. Everything you need. Nothing you don't.
@@ -1822,16 +2002,88 @@
       </div>
 
       <div class="hero__cta-wrap" data-animate>
-        <!-- REPLACE_WITH: https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X -->
         <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Instant Access — $9.99</a>
         <span class="hero__caption">PDF + Google Sheets &middot; Instant download &middot; Works on any device</span>
       </div>
     </div>
 
-    <!-- Hero media placeholder -->
     <div class="container">
       <div class="hero__media" data-animate>
         <img src="ubelia-cover.png" alt="The Complete Wedding Guide by Ubelia — product cover" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       2a. TRUST STRIP (Fix 3 — Social proof above fold)
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-strip__inner">
+        <div class="trust-strip__block">
+          <span class="trust-strip__stars">★★★★★</span>
+          <div>
+            <span class="trust-strip__big">4.9</span>
+            <span class="trust-strip__label">out of 5</span>
+          </div>
+          <span class="trust-strip__sep">·</span>
+          <span class="trust-strip__text">3,587 verified reviews</span>
+        </div>
+        <div class="trust-strip__divider"></div>
+        <div class="trust-strip__block">
+          <span class="trust-strip__icon">💑</span>
+          <span class="trust-strip__text"><strong>11,209+</strong> couples planned their wedding with Ubelia</span>
+        </div>
+        <div class="trust-strip__divider"></div>
+        <div class="trust-strip__block">
+          <span class="trust-strip__icon">⚡</span>
+          <span class="trust-strip__text"><strong>Instant download</strong> — access in under 60 seconds</span>
+        </div>
+        <div class="trust-strip__divider"></div>
+        <div class="trust-strip__block">
+          <span class="trust-strip__icon">🔒</span>
+          <span class="trust-strip__text"><strong>Secure checkout</strong> — Stripe encrypted</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       2b. URGENCY BANNER — Countdown Timer (Fix 6)
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="urgency-banner">
+    <div class="container">
+      <div class="urgency-banner__inner">
+        <div class="urgency-banner__left">
+          <span class="urgency-banner__tag">🔥 Launch Offer</span>
+          <p class="urgency-banner__headline">Get the Complete Wedding Guide at Launch Price</p>
+          <p class="urgency-banner__sub">This offer expires when the timer hits zero. Price goes back to <s>$36</s> after.</p>
+        </div>
+        <div class="urgency-banner__center">
+          <div class="urgency-timer">
+            <div class="urgency-timer__block">
+              <span class="urgency-timer__num" id="cdHours">23</span>
+              <span class="urgency-timer__unit">hours</span>
+            </div>
+            <span class="urgency-timer__colon">:</span>
+            <div class="urgency-timer__block">
+              <span class="urgency-timer__num" id="cdMinutes">59</span>
+              <span class="urgency-timer__unit">mins</span>
+            </div>
+            <span class="urgency-timer__colon">:</span>
+            <div class="urgency-timer__block">
+              <span class="urgency-timer__num" id="cdSeconds">59</span>
+              <span class="urgency-timer__unit">secs</span>
+            </div>
+          </div>
+        </div>
+        <div class="urgency-banner__right">
+          <div class="urgency-price">
+            <span class="urgency-price__old">$36</span>
+            <span class="urgency-price__new">$9.99</span>
+          </div>
+          <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary urgency-banner__cta">Claim Offer Now</a>
+        </div>
       </div>
     </div>
   </section>
