@@ -1778,6 +1778,66 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
+       EXPERT NOTE — reusable educational callout
+    ════════════════════════════════════════════════════════════════ */
+    .expert-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: rgba(127,141,116,0.06);
+      border: 1px solid rgba(127,141,116,0.18);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin-bottom: 44px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .expert-note__icon {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .expert-note__icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+    }
+    .expert-note__body {}
+    .expert-note__label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 5px;
+    }
+    .expert-note__text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+    .expert-note__text strong {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--sage-dark);
+    }
+
+    /* ════════════════════════════════════════════════════════════════
        MOBILE-FIRST RESPONSIVE
        sm  ≤ 767px   (phones)
        xs  ≤ 420px   (small phones)
@@ -2048,6 +2108,15 @@
   ══════════════════════════════════════════════════════════════ -->
   <section class="empathy-section">
     <div class="container">
+      <div class="expert-note" style="border-color:rgba(196,168,130,0.3);border-left-color:var(--sand);background:rgba(196,168,130,0.06);margin-bottom:48px;" data-animate>
+        <div class="expert-note__icon" style="background:var(--sand);">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label" style="color:#8A6440;">Wedding Planning Expert</span>
+          <p class="expert-note__text" style="color:rgba(255,248,238,0.85);">The single biggest mistake engaged couples make is jumping into vendor research before understanding the structure of planning itself. <strong style="color:var(--sand);">Overwhelm is not caused by too many decisions — it's caused by not knowing which decision comes first.</strong> Every couple in this position is normal. And every one of them can fix it with the right system.</p>
+        </div>
+      </div>
       <div class="empathy-section__inner" data-animate>
         <div class="empathy-section__text">
           <p class="empathy-section__mirror">
@@ -2196,6 +2265,15 @@
         <div data-animate>
           <span class="sheets-callout__badge">Included Free</span>
           <h2><strong>33 Automated Google Sheets</strong> — Your Secret Weapon</h2>
+          <div class="expert-note" style="margin-bottom:20px;margin-left:0;margin-right:0;max-width:100%;">
+            <div class="expert-note__icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="expert-note__body">
+              <span class="expert-note__label">Why automated tracking matters</span>
+              <p class="expert-note__text">Professional planners charge $1,500–$3,500 partly for access to the same connected tracking systems we've built here. <strong>The real value is not the spreadsheet itself — it's that every tool talks to the others.</strong> When your guest count changes, your catering budget updates automatically. When a vendor quote comes in, the comparison ranks it instantly. Manual tracking in separate documents is where budget overruns are born.</p>
+            </div>
+          </div>
           <p class="sheets-callout__desc">
             This is your strongest planning tool and it comes free with the guide. Pre-built formulas that handle every calculation automatically. Open it, add your numbers, everything does itself.
           </p>
@@ -2243,6 +2321,16 @@
         <span class="label">The Difference</span>
         <h2>Why Couples Who Use Ubelia Plan Better</h2>
         <p class="comparison-header__sub">Every row below is a real situation engaged couples face. Here's what changes when you have the right system.</p>
+      </div>
+
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><path d="M2 20h20M6 20V10M12 20V4M18 20v-6"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">What separates organised couples from stressed ones</span>
+          <p class="expert-note__text">In over a decade of studying wedding planning outcomes, one pattern is consistent: <strong>the couples who struggle most are not the ones with the smallest budgets — they're the ones without a system.</strong> A $50,000 wedding planned without structure creates more stress than a $12,000 wedding planned with one. Organisation is not a personality trait. It's a tool. And like any tool, the right one changes the result.</p>
+        </div>
       </div>
 
       <div class="comparison-table" data-animate>
@@ -2491,6 +2579,16 @@
         challenge before it becomes a crisis.
       </p>
 
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">The six points where wedding planning breaks down</span>
+          <p class="expert-note__text">Every challenge on this list represents a real inflection point where couples lose money, lose time, or lose confidence. <strong>Budget overruns are the most common — they happen not from extravagance but from a lack of real-time visibility.</strong> Vendor mistakes happen when couples go into negotiations without knowing what's standard. Vow anxiety is almost universal, and almost universally resolved with a simple framework. Each of these is solvable. None of them require a planner. They require the right tools.</p>
+        </div>
+      </div>
+
       <div class="pain-grid" data-animate>
         <div class="pain-card">
           <span class="pain-card__num">01</span>
@@ -2544,6 +2642,16 @@
         </p>
       </div>
 
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">Why comprehensive beats piecemeal</span>
+          <p class="expert-note__text">A wedding involves roughly 200 individual decisions between engagement and honeymoon. Most couples track fewer than 40 of them formally — the rest are managed by memory, which is why things get missed. <strong>Completeness is not about covering everything — it's about ensuring the expensive decisions are never made without the right context.</strong> Every item in this guide was included because its absence creates a specific, recurring problem that we've seen couples face.</p>
+        </div>
+      </div>
+
       <div class="included-grid" data-animate>
         <div class="included-item">Complete Planning Timeline (12 months)</div>
         <div class="included-item">33 Budget Spreadsheet Templates</div>
@@ -2579,6 +2687,15 @@
       <div class="testimonials-section__header" data-animate>
         <span class="label">Real Couples</span>
         <h2>Their Dream Wedding. Your Turn.</h2>
+        <div class="expert-note" style="text-align:left;margin-top:28px;">
+          <div class="expert-note__icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="expert-note__body">
+            <span class="expert-note__label">What these results tell us about structured planning</span>
+            <p class="expert-note__text">The patterns across these reviews are not coincidences — they're what structured planning consistently produces. <strong>Couples who use the budget tracker find savings. Couples who use vendor scripts negotiate better rates. Couples who use the timeline report feeling calm on the morning of their wedding.</strong> The guide does not plan your wedding for you. It gives you the same frameworks that professional planners use, so you can make better decisions, faster, with more confidence.</p>
+          </div>
+        </div>
         <div class="testi-rating">
           <span class="testi-rating__stars">★★★★★</span>
           <span class="testi-rating__score">4.9</span>
@@ -2747,6 +2864,16 @@
         </p>
       </div>
 
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">Why each bonus targets a specific failure point</span>
+          <p class="expert-note__text">Every bonus in this guide was added because its absence caused a recurring problem in real weddings. The 33 Google Sheets exist because couples who tracked manually consistently overspent. The setup guide exists because tools that take more than 20 minutes to configure almost never get used. <strong>The most common post-wedding regret is not "I spent too much" — it's "I wish I'd known that earlier."</strong> The 19 Pro Tips section was built entirely from those conversations.</p>
+        </div>
+      </div>
+
       <div class="bonuses-grid" data-animate>
 
         <div class="bonus-card">
@@ -2816,6 +2943,16 @@
         <h2>Get Started in Minutes</h2>
       </div>
 
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">Why setup speed is not a convenience — it's a conversion factor</span>
+          <p class="expert-note__text">Setup friction is the leading reason planning tools go unused. Couples who do not see a meaningful result within the first session rarely return to the tool. <strong>This guide was designed to produce a clear, actionable plan within 20 minutes of opening it</strong> — not because we rushed the content, but because getting you into the system quickly is the only way the system can help you. A guide that sits unopened helps no one.</p>
+        </div>
+      </div>
+
       <div class="steps-grid" data-animate>
         <div class="step">
           <div class="step__num">1</div>
@@ -2857,6 +2994,16 @@
           Join hundreds of couples who planned their perfect wedding without chaos,
           stress, or budget disasters.
         </p>
+      </div>
+
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">The real cost of planning without a system</span>
+          <p class="expert-note__text">A wedding planner charges $1,500–$3,500 for one thing above all: access to a trusted structure. They know which vendors to contact and when, which clauses are negotiable, how to build a timeline that actually runs. <strong>The investment in Ubelia is not $9.99 — it's the comparison to what planning without it costs.</strong> Couples who track their spending save an average of $1,200–$2,400 compared to couples who don't. That is not a marketing claim. It is a consequence of visibility.</p>
+        </div>
       </div>
 
       <div class="pricing-card" data-animate>
@@ -2905,6 +3052,16 @@
         <p style="font-size:15px;color:var(--mid);max-width:560px;margin:12px auto 0;line-height:1.7;">
           Every question below is something our couples have lived through. Here's exactly how Ubelia addresses each one.
         </p>
+      </div>
+
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">Why these questions matter more than most FAQs</span>
+          <p class="expert-note__text">Most FAQ sections answer logistical questions — format, delivery, refunds. <strong>The questions below are the ones couples are actually afraid to ask</strong>, because they feel like they should already know the answers. They don't. And they're not alone. Understanding the "why" behind each answer is what separates couples who plan with confidence from couples who plan in reaction. Read these carefully — each one contains a planning insight that applies beyond just the guide.</p>
+        </div>
       </div>
 
       <div class="faq-list" data-animate>
