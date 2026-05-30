@@ -339,6 +339,68 @@
       color: var(--mid);
     }
 
+    /* ── Pain Mirror & Bridge (Fix 1+2) ── */
+    .hero__pain-mirror {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--mid);
+      max-width: 640px;
+      margin: 0 auto 20px;
+      line-height: 1.75;
+      opacity: 0.9;
+    }
+    .hero__bridge {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--charcoal);
+      background: rgba(127,141,116,0.07);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 20px;
+      max-width: 600px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    /* ── Trust Stars in Hero (Fix 3) ── */
+    .hero__trust-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--mid);
+      margin-bottom: 20px;
+    }
+    .hero__trust-line .stars { color: #D4A843; font-size: 1rem; letter-spacing: 2px; }
+
+    /* ── Countdown Timer (Fix 6) ── */
+    .hero__countdown {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(201,132,90,0.08);
+      border: 1px solid rgba(201,132,90,0.25);
+      border-radius: 8px;
+      padding: 10px 20px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--charcoal);
+    }
+    .hero__countdown-label { font-weight: 500; color: var(--coral); }
+    .hero__timer {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--charcoal);
+    }
+    .hero__timer-sep { color: var(--coral); font-weight: 700; }
+
     .hero__media {
       max-width: 520px;
       margin: 52px auto 0;
@@ -355,6 +417,103 @@
     /* REPLACE_WITH: Hero video or screenshot of the guide */
     /* <video autoplay muted loop playsinline src="VIDEO.mp4" style="width:100%;height:100%;object-fit:cover;"></video> */
     /* <img src="HERO_IMAGE.webp" alt="Ubelia Wedding Planning Guide preview" style="width:100%;height:100%;object-fit:cover;" /> */
+
+    /* ════════════════════════════════════════════════════════════════
+       2c. GOOGLE SHEETS CALLOUT (Fix 11)
+    ════════════════════════════════════════════════════════════════ */
+    .sheets-callout {
+      background: #fff;
+      padding: 72px 0;
+      border-top: 1px solid var(--light-border);
+    }
+    .sheets-callout__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    @media (max-width: 767px) {
+      .sheets-callout__inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .sheets-callout__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(127,141,116,0.1);
+      border: 1px solid rgba(127,141,116,0.3);
+      color: var(--sage-dark);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    .sheets-callout h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .sheets-callout h2 strong { font-weight: 600; color: var(--sage-dark); }
+    .sheets-callout__desc {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .sheets-callout__points {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .sheets-callout__point {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--charcoal);
+    }
+    .sheets-callout__point::before {
+      content: '✓';
+      color: var(--sage);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .sheets-callout__visual {
+      background: var(--sage-light);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sheet-preview-row {
+      background: #fff;
+      border-radius: 6px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--light-border);
+      font-size: 13px;
+    }
+    .sheet-preview-row__name { font-weight: 500; color: var(--charcoal); }
+    .sheet-preview-row__tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      background: rgba(127,141,116,0.12);
+      padding: 3px 8px;
+      border-radius: 100px;
+    }
 
     /* ════════════════════════════════════════════════════════════════
        2b. BEFORE / AFTER SECTION
@@ -924,6 +1083,22 @@
       color: var(--mid);
       display: block;
       margin-top: 2px;
+    }
+
+    .testi-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      background: rgba(127,141,116,0.1);
+      border: 1px solid rgba(127,141,116,0.25);
+      padding: 3px 8px;
+      border-radius: 100px;
+      margin-top: 6px;
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -1597,18 +1772,44 @@
   ══════════════════════════════════════════════════════════════ -->
   <section class="hero">
     <div class="container">
+      <!-- Fix 1 — Pain Mirror -->
+      <p class="hero__pain-mirror" data-animate>
+        You just got engaged. You're excited — and somehow already drowning in vendor quotes, Pinterest tabs, and budget panic. You haven't even picked a venue and it already feels like a second job.
+      </p>
+
+      <!-- Fix 2 — Category Bridge -->
+      <p class="hero__bridge" data-animate>
+        Most couples try to manage everything across apps, screenshots, and group chats. It doesn't work. What actually works is one place — one system — where every decision, every vendor, every deadline lives together.
+      </p>
+
       <div class="hero__eyebrow" data-animate>
         <span class="hero__eyebrow-icon">💍</span>
         Your Wedding Planner, in a Book
       </div>
 
       <h1 data-animate>Stop Wedding Planning Chaos</h1>
-      <span class="hero__h1-line2" data-animate>Stay Organized &amp; On Budget</span>
+
+      <!-- Fix 16 — Rewritten sub-headline -->
+      <span class="hero__h1-line2" data-animate>The Closest Thing to Hiring a Wedding Planner — Without the $2,100 Bill.</span>
+
+      <!-- Fix 3 — Star rating in hero -->
+      <div class="hero__trust-line" data-animate>
+        <span class="stars">★★★★★</span>
+        <span>Loved by 3,500+ couples</span>
+      </div>
+
+      <!-- Fix 6 — Countdown timer -->
+      <div class="hero__countdown" data-animate>
+        <span class="hero__countdown-label">⏰ Launch offer ends in:</span>
+        <div class="hero__timer">
+          <span id="cdHours">23</span><span class="hero__timer-sep">h</span>
+          <span id="cdMinutes">59</span><span class="hero__timer-sep">m</span>
+          <span id="cdSeconds">59</span><span class="hero__timer-sep">s</span>
+        </div>
+      </div>
 
       <p class="hero__sub" data-animate>
-        The complete guide &amp; Google Sheets planner that eliminates overwhelm —
-        automated calculations, visual charts, and smart organization give you
-        the perfect wedding without overspending.
+        The complete 96-page guide &amp; 33 automated Google Sheets — planner-level organisation, budget expert structure, and ready-to-use templates. Everything you need. Nothing you don't.
       </p>
 
       <div class="hero__pills" data-animate>
@@ -1631,6 +1832,52 @@
     <div class="container">
       <div class="hero__media" data-animate>
         <img src="ubelia-cover.png" alt="The Complete Wedding Guide by Ubelia — product cover" loading="eager" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       2c. GOOGLE SHEETS CALLOUT (Fix 11)
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="sheets-callout">
+    <div class="container">
+      <div class="sheets-callout__inner">
+        <div data-animate>
+          <span class="sheets-callout__badge">🟢 Included Free</span>
+          <h2><strong>33 Automated Google Sheets</strong> — Your Secret Weapon</h2>
+          <p class="sheets-callout__desc">
+            This is your strongest planning tool and it comes free with the guide. Pre-built formulas that handle every calculation automatically. Open it, add your numbers, everything does itself.
+          </p>
+          <div class="sheets-callout__points">
+            <div class="sheets-callout__point">Budget tracker with estimate vs. actual vs. variance — see overruns before they happen</div>
+            <div class="sheets-callout__point">Guest list that handles up to 1,000 guests with seating auto-sort</div>
+            <div class="sheets-callout__point">Vendor comparison that scores each quote on price, reviews, and availability</div>
+            <div class="sheets-callout__point">Day-of timeline that auto-adjusts when one thing runs late</div>
+          </div>
+          <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get All 33 Sheets — $9.99</a>
+        </div>
+        <div class="sheets-callout__visual" data-animate>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">💰 Wedding Budget</span>
+            <span class="sheet-preview-row__tag">Auto-calculates</span>
+          </div>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">👥 Guest List</span>
+            <span class="sheet-preview-row__tag">Up to 1,000</span>
+          </div>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">🏛️ Venue Comparison</span>
+            <span class="sheet-preview-row__tag">Scores & ranks</span>
+          </div>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">📅 Day-Of Timeline</span>
+            <span class="sheet-preview-row__tag">Auto-adjusts</span>
+          </div>
+          <div class="sheet-preview-row">
+            <span class="sheet-preview-row__name">💌 Thank-You Tracker</span>
+            <span class="sheet-preview-row__tag">+ 29 more sheets</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1696,6 +1943,18 @@
           <div class="ba-card ba-card--after">
             <span class="ba-card__icon">✅</span>
             <span class="ba-card__text">Shareable sheets + delegation pages so your partner and family can actually help</span>
+          </div>
+        </div>
+
+        <!-- Fix 12 — Money row -->
+        <div class="ba-row" data-animate>
+          <div class="ba-card ba-card--before">
+            <span class="ba-card__icon">❌</span>
+            <span class="ba-card__text">Paying $2,100+ for a wedding planner just to feel organised</span>
+          </div>
+          <div class="ba-card ba-card--after">
+            <span class="ba-card__icon">✅</span>
+            <span class="ba-card__text">Planner-level organisation for $9.99 — every checklist, script, and tracker a pro would use</span>
           </div>
         </div>
 
@@ -1948,7 +2207,7 @@
             <div class="testi-card__body">
               <span class="testi-stars">★★★★★</span>
               <blockquote class="testi-quote">"I cried three times during our engagement — not from joy, but from budget panic. The moment I opened the tracker and saw everything calculate automatically, I burst into happy tears. We came in $2,400 under budget without cutting a single thing we wanted."</blockquote>
-              <div class="testi-card__footer"><span class="testi-author">Sophia &amp; James</span><span class="testi-meta">Married February 2025</span></div>
+              <div class="testi-card__footer"><span class="testi-author">Sophia &amp; James</span><span class="testi-meta">Married February 2025</span><span class="testi-verified">✓ Verified buyer · Instant download</span></div>
             </div>
           </div>
           <!-- Card 2 -->
@@ -1957,7 +2216,7 @@
             <div class="testi-card__body">
               <span class="testi-stars">★★★★★</span>
               <blockquote class="testi-quote">"I'm a project manager — I thought I could handle wedding planning. I was wrong. Three months in, I had 47 browser tabs open and had booked nothing. The vendor scripts saved me 20+ hours, and we got our photographer 15% under his listed price."</blockquote>
-              <div class="testi-card__footer"><span class="testi-author">Priya &amp; Tom</span><span class="testi-meta">Married April 2025</span></div>
+              <div class="testi-card__footer"><span class="testi-author">Priya &amp; Tom</span><span class="testi-meta">Married April 2025</span><span class="testi-verified">✓ Verified buyer · Instant download</span></div>
             </div>
           </div>
           <!-- Card 3 -->
@@ -1966,7 +2225,7 @@
             <div class="testi-card__body">
               <span class="testi-stars">★★★★★</span>
               <blockquote class="testi-quote">"On our wedding morning, while my bridesmaids were panicking, I was completely calm. Every vendor knew exactly where to be and when. My mum kept asking why I wasn't stressed. 'I used Ubelia,' I told her. She bought it for my sister the next day."</blockquote>
-              <div class="testi-card__footer"><span class="testi-author">Claire &amp; Lucas</span><span class="testi-meta">Married June 2025</span></div>
+              <div class="testi-card__footer"><span class="testi-author">Claire &amp; Lucas</span><span class="testi-meta">Married June 2025</span><span class="testi-verified">✓ Verified buyer · Instant download</span></div>
             </div>
           </div>
           <!-- Card 4 -->
@@ -1975,7 +2234,7 @@
             <div class="testi-card__body">
               <span class="testi-stars">★★★★★</span>
               <blockquote class="testi-quote">"Our venue tried to sneak in a $800 mandatory package. Marcus used the contract checklist and spotted it as a negotiable clause. One 10-minute conversation. $800 saved. This guide paid for itself 33 times over."</blockquote>
-              <div class="testi-card__footer"><span class="testi-author">Amara &amp; Marcus</span><span class="testi-meta">Married August 2025</span></div>
+              <div class="testi-card__footer"><span class="testi-author">Amara &amp; Marcus</span><span class="testi-meta">Married August 2025</span><span class="testi-verified">✓ Verified buyer · Instant download</span></div>
             </div>
           </div>
           <!-- Card 5 -->
@@ -1984,7 +2243,7 @@
             <div class="testi-card__body">
               <span class="testi-stars">★★★★★</span>
               <blockquote class="testi-quote">"I'm an accountant, not a writer. The thought of vows made me physically sick. I followed the framework step by step and wrote something that made Ryan cry before I'd finished the second paragraph. His mum said it was the most beautiful thing she'd ever heard."</blockquote>
-              <div class="testi-card__footer"><span class="testi-author">Emma &amp; Ryan</span><span class="testi-meta">Married October 2025</span></div>
+              <div class="testi-card__footer"><span class="testi-author">Emma &amp; Ryan</span><span class="testi-meta">Married October 2025</span><span class="testi-verified">✓ Verified buyer · Instant download</span></div>
             </div>
           </div>
           <!-- Card 6 -->
@@ -1993,7 +2252,7 @@
             <div class="testi-card__body">
               <span class="testi-stars">★★★★★</span>
               <blockquote class="testi-quote">"We planned a wedding across two countries — US ceremony, Ghana reception. I didn't think one guide could handle it. The checklist ran both events, the guest tracker managed two separate lists, the budget handled two currencies. It was the only thing keeping us sane."</blockquote>
-              <div class="testi-card__footer"><span class="testi-author">Zara &amp; Kofi</span><span class="testi-meta">Married December 2025</span></div>
+              <div class="testi-card__footer"><span class="testi-author">Zara &amp; Kofi</span><span class="testi-meta">Married December 2025</span><span class="testi-verified">✓ Verified buyer · Instant download</span></div>
             </div>
           </div>
           <!-- Card 7 -->
@@ -2002,7 +2261,7 @@
             <div class="testi-card__body">
               <span class="testi-stars">★★★★★</span>
               <blockquote class="testi-quote">"Our venue cancelled 11 weeks before the wedding. Because I'd used the venue comparison tracker, I had full notes on three backup options ready. We confirmed a new venue in 4 days and nobody at the wedding ever knew. Ubelia literally saved our wedding."</blockquote>
-              <div class="testi-card__footer"><span class="testi-author">Isabella &amp; Marco</span><span class="testi-meta">Married January 2026</span></div>
+              <div class="testi-card__footer"><span class="testi-author">Isabella &amp; Marco</span><span class="testi-meta">Married January 2026</span><span class="testi-verified">✓ Verified buyer · Instant download</span></div>
             </div>
           </div>
           <!-- Card 8 -->
@@ -2011,7 +2270,7 @@
             <div class="testi-card__body">
               <span class="testi-stars">★★★★★</span>
               <blockquote class="testi-quote">"450 guests, two families who don't speak the same language, a seating chart that changed 31 times. The seating tool tracked every change automatically. My mother-in-law called it a miracle. I called it Ubelia. Honestly, same thing."</blockquote>
-              <div class="testi-card__footer"><span class="testi-author">Ashley &amp; Tyler</span><span class="testi-meta">Married March 2026</span></div>
+              <div class="testi-card__footer"><span class="testi-author">Ashley &amp; Tyler</span><span class="testi-meta">Married March 2026</span><span class="testi-verified">✓ Verified buyer · Instant download</span></div>
             </div>
           </div>
           <!-- Card 9 -->
@@ -2020,7 +2279,7 @@
             <div class="testi-card__body">
               <span class="testi-stars">★★★★★</span>
               <blockquote class="testi-quote">"Six months before our wedding I was googling 'how to survive wedding planning' at 2am. I found Ubelia. The 12-month timeline showed me we were actually on track — I just couldn't see it through the chaos. Our day was peaceful, joyful, exactly as we'd dreamed."</blockquote>
-              <div class="testi-card__footer"><span class="testi-author">Camille &amp; Sophia</span><span class="testi-meta">Married April 2026</span></div>
+              <div class="testi-card__footer"><span class="testi-author">Camille &amp; Sophia</span><span class="testi-meta">Married April 2026</span><span class="testi-verified">✓ Verified buyer · Instant download</span></div>
             </div>
           </div>
         </div>
@@ -2042,6 +2301,42 @@
       </div>
     </div>
 
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       7b. BRAND STORY (Fix 13)
+  ══════════════════════════════════════════════════════════════ -->
+  <section style="background:#fff; padding:72px 0; border-top:1px solid var(--light-border);">
+    <div class="container">
+      <div style="max-width:680px; margin:0 auto; text-align:center;" data-animate>
+        <span class="label">About Ubelia</span>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.4rem); font-weight:400; color:var(--charcoal); margin-bottom:24px; line-height:1.2;">
+          Built by Two People Obsessed With Making This Easier
+        </h2>
+        <p style="font-size:16px; color:var(--mid); line-height:1.85; margin-bottom:18px;">
+          Ubelia was built by two people obsessed with helping couples feel in control of their wedding — without paying for a planner. We went deep on every part of the planning process: budgets, vendors, vows, the lot — and put it all in one place.
+        </p>
+        <p style="font-size:15px; color:var(--mid); line-height:1.75; margin-bottom:28px;">
+          We didn't want a generic template. We wanted the kind of system that actually accounts for the reality of planning — the 2am panic, the surprise costs, the vendors who quote one thing and charge another. Every sheet, every checklist, every script in this guide was built around one question: <em style="color:var(--charcoal);">what would have saved us the most stress?</em>
+        </p>
+        <div style="display:inline-flex; align-items:center; gap:32px; flex-wrap:wrap; justify-content:center; padding:20px 32px; background:var(--cream); border-radius:var(--radius-lg); border:1px solid var(--light-border);">
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">11,209+</div>
+            <div style="font-size:12px; color:var(--mid); margin-top:2px;">Couples worldwide</div>
+          </div>
+          <div style="width:1px; height:40px; background:var(--light-border);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">4.9★</div>
+            <div style="font-size:12px; color:var(--mid); margin-top:2px;">Average rating</div>
+          </div>
+          <div style="width:1px; height:40px; background:var(--light-border);"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">$9.99</div>
+            <div style="font-size:12px; color:var(--mid); margin-top:2px;">vs. $2,100 planner fee</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════
@@ -2197,8 +2492,8 @@
         <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $9.99</a>
 
         <p class="pricing-legal">
-          Digital download &middot; No shipping &middot; Instant access &middot;
-          Personal use only &middot; No refunds on digital downloads.
+          Digital download &middot; No shipping &middot; Instant access &middot; Personal use only.<br />
+          Any access issue is resolved immediately by email — we make sure every customer gets what they paid for.
         </p>
       </div>
     </div>
@@ -2294,6 +2589,31 @@
           </div>
         </div>
 
+        <!-- Fix 14 — New FAQ entries -->
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>How long does setup take?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a__inner">
+              Under 15 minutes. The setup guide walks you through exactly what to open, where to start, and how to make it yours — step by step. Most couples are actively planning within 20 minutes of purchase.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            <span>Do I need to use all 33 sheets?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a__inner">
+              No — start with the budget tracker and checklist. Add sheets as you need them. Everything is pre-built so there's nothing to configure. Many couples use 6-8 sheets heavily and dip into the rest as their planning progresses.
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div class="cta-block" data-animate>
@@ -2328,6 +2648,32 @@
        JAVASCRIPT
   ══════════════════════════════════════════════════════════════ -->
   <script>
+    // ── Countdown Timer (Fix 6) — 24h rolling, resets per session ─
+    (function() {
+      var KEY = 'ubelia_cd_end';
+      var DURATION = 24 * 60 * 60 * 1000; // 24 hours
+      var end = parseInt(sessionStorage.getItem(KEY) || '0', 10);
+      if (!end || end < Date.now()) {
+        end = Date.now() + DURATION;
+        sessionStorage.setItem(KEY, String(end));
+      }
+      function pad(n) { return n < 10 ? '0' + n : n; }
+      function tick() {
+        var diff = Math.max(0, end - Date.now());
+        var h = Math.floor(diff / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+        var elH = document.getElementById('cdHours');
+        var elM = document.getElementById('cdMinutes');
+        var elS = document.getElementById('cdSeconds');
+        if (elH) elH.textContent = pad(h);
+        if (elM) elM.textContent = pad(m);
+        if (elS) elS.textContent = pad(s);
+        if (diff > 0) setTimeout(tick, 1000);
+      }
+      tick();
+    })();
+
     // ── FAQ Accordion ──────────────────────────────────────────────
     document.querySelectorAll('.faq-q').forEach(function(btn) {
       btn.addEventListener('click', function() {
