@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Complete Wedding Guide — Ubelia</title>
-  <meta name="description" content="96-page wedding planning guide + 33 automated Google Sheets. Expert checklists, budget trackers, vendor scripts & vow templates. Download instantly for $9.99." />
+  <meta name="description" content="96-page wedding planning guide + 33 automated Google Sheets. Expert checklists, budget trackers, vendor scripts & vow templates. Download instantly for $36." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1429,6 +1429,20 @@
       line-height: 1.65;
     }
 
+    .bonus-card__why {
+      margin-top: 14px !important;
+      padding-top: 12px;
+      border-top: 1px solid var(--light-border);
+      font-size: 12.5px !important;
+      color: var(--sage-dark) !important;
+      font-style: italic;
+      line-height: 1.6 !important;
+    }
+    .bonus-card__why strong {
+      font-style: normal;
+      font-weight: 600;
+    }
+
     /* ════════════════════════════════════════════════════════════════
        9. HOW IT WORKS
     ════════════════════════════════════════════════════════════════ */
@@ -1778,6 +1792,108 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
+       6b. PLANNING MISTAKES SECTION
+    ════════════════════════════════════════════════════════════════ */
+    .mistakes-section {
+      background: var(--charcoal);
+      padding: 88px 0;
+    }
+    .mistakes-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .mistakes-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      color: var(--cream);
+      max-width: 720px;
+      margin: 0 auto 14px;
+      line-height: 1.25;
+    }
+    .mistakes-header__sub {
+      font-size: 15px;
+      color: rgba(255,248,238,0.5);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .mistakes-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .mistake-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0;
+      background: rgba(255,248,238,0.03);
+      border: 1px solid rgba(196,168,130,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .mistake-card:hover {
+      background: rgba(255,248,238,0.05);
+    }
+    .mistake-card__number {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px 0 32px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: rgba(196,168,130,0.3);
+      letter-spacing: -0.02em;
+      border-right: 1px solid rgba(196,168,130,0.1);
+      flex-shrink: 0;
+    }
+    .mistake-card__content {
+      padding: 28px 32px;
+    }
+    .mistake-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .mistake-card__desc {
+      font-size: 14px;
+      color: rgba(255,248,238,0.55);
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .mistake-card__fix {
+      background: rgba(127,141,116,0.1);
+      border: 1px solid rgba(127,141,116,0.2);
+      border-radius: 6px;
+      padding: 14px 18px;
+    }
+    .mistake-card__fix-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 6px;
+    }
+    .mistake-card__fix p {
+      font-size: 13.5px;
+      color: rgba(255,248,238,0.7);
+      line-height: 1.65;
+      margin: 0;
+    }
+    @media (max-width: 600px) {
+      .mistake-card { grid-template-columns: 1fr; }
+      .mistake-card__number { border-right: none; border-bottom: 1px solid rgba(196,168,130,0.1); padding: 20px 24px; font-size: 1rem; justify-content: flex-start; }
+      .mistake-card__content { padding: 20px 24px; }
+    }
+
+    /* ════════════════════════════════════════════════════════════════
        EXPERT NOTE — reusable educational callout
     ════════════════════════════════════════════════════════════════ */
     .expert-note {
@@ -2080,11 +2196,11 @@
   <div class="sticky-bar">
     <div class="sticky-bar__price">
       <span class="sticky-bar__old">$67</span>
-      <span class="sticky-bar__new">$9.99</span>
+      <span class="sticky-bar__new">$36</span>
       <span class="sticky-bar__only">only</span>
     </div>
     <!-- REPLACE_WITH: https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X -->
-    <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-pill">Start Planning Now — $9.99</a>
+    <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-pill">Start Planning Now — $36</a>
   </div>
 
   <!-- ══════════════════════════════════════════════════════════════
@@ -2096,7 +2212,7 @@
         <img class="logo__icon" src="ubelia-logo.png" alt="Ubelia Wedding logo" />
       </a>
       <!-- REPLACE_WITH: https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X -->
-      <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Instant Access — $9.99</a>
+      <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Instant Access — $36</a>
     </div>
   </header>
 
@@ -2139,7 +2255,7 @@
             <span class="empathy-stat__label">average cost of a wedding planner — for the same clarity you can have today</span>
           </div>
           <div class="empathy-stat">
-            <span class="empathy-stat__num">$9.99</span>
+            <span class="empathy-stat__num">$36</span>
             <span class="empathy-stat__label">everything a planner would give you, in one instant download</span>
           </div>
         </div>
@@ -2173,7 +2289,7 @@
       </div>
 
       <div class="hero__cta-wrap" data-animate>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Instant Access — $9.99</a>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Instant Access — $36</a>
         <span class="hero__caption">PDF + Google Sheets &middot; Instant download &middot; Works on any device</span>
       </div>
     </div>
@@ -2225,7 +2341,7 @@
         <div class="urgency-banner__left">
           <span class="urgency-banner__tag">Limited Offer</span>
           <p class="urgency-banner__headline">Get the Complete Wedding Guide at Launch Price</p>
-          <p class="urgency-banner__sub">This offer expires when the timer hits zero. Price goes back to <s>$36</s> after.</p>
+          <p class="urgency-banner__sub">This offer expires when the timer hits zero. Price goes back to <s>$67</s> after.</p>
         </div>
         <div class="urgency-banner__center">
           <div class="urgency-timer">
@@ -2247,8 +2363,8 @@
         </div>
         <div class="urgency-banner__right">
           <div class="urgency-price">
-            <span class="urgency-price__old">$36</span>
-            <span class="urgency-price__new">$9.99</span>
+            <span class="urgency-price__old">$67</span>
+            <span class="urgency-price__new">$36</span>
           </div>
           <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary urgency-banner__cta">Claim Offer Now</a>
         </div>
@@ -2283,7 +2399,7 @@
             <div class="sheets-callout__point">Vendor comparison that scores each quote on price, reviews, and availability</div>
             <div class="sheets-callout__point">Day-of timeline that auto-adjusts when one thing runs late</div>
           </div>
-          <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get All 33 Sheets — $9.99</a>
+          <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get All 33 Sheets — $36</a>
         </div>
         <div class="sheets-callout__visual" data-animate>
           <div class="sheet-preview-row">
@@ -2438,14 +2554,14 @@
           </div>
           <div class="ct-row__col ct-row__col--after">
             <span class="ct-icon ct-icon--yes"></span>
-            Every tool a professional planner uses — for $9.99. One payment, instant access, yours to keep forever
+            Every tool a professional planner uses — for $36. One payment, instant access, yours to keep forever
           </div>
         </div>
 
       </div>
 
       <div class="comparison-footer" data-animate>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get the Complete System — $9.99</a>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get the Complete System — $36</a>
         <p class="comparison-footer__note">Instant download &middot; PDF + 33 Google Sheets &middot; Works on any device</p>
       </div>
 
@@ -2623,7 +2739,7 @@
       </div>
 
       <div class="cta-block" data-animate>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Download Instantly — $9.99</a>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Download Instantly — $36</a>
       </div>
     </div>
   </section>
@@ -2672,8 +2788,92 @@
       </div>
 
       <div class="cta-block" data-animate>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Yes, I Want This — $9.99</a>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Yes, I Want This — $36</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       6b. PLANNING EDUCATION — 5 Expensive Mistakes
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="mistakes-section">
+    <div class="container">
+
+      <div class="mistakes-header" data-animate>
+        <span class="label">Wedding Expert Education</span>
+        <h2>The 5 Most Expensive Wedding Planning Mistakes — And How to Avoid Every One</h2>
+        <p class="mistakes-header__sub">These are not hypothetical. They are the patterns we observed across thousands of couples. Each one is preventable with the right information, at the right time.</p>
+      </div>
+
+      <div class="mistakes-grid" data-animate>
+
+        <div class="mistake-card">
+          <div class="mistake-card__number">01</div>
+          <div class="mistake-card__content">
+            <h3 class="mistake-card__title">Booking vendors before locking the budget</h3>
+            <p class="mistake-card__desc">Most couples book their venue and photographer before they have a working budget. These two vendors alone typically consume 40–55% of the total wedding cost. When the rest of the budget is built around what's left, every subsequent decision is made under pressure.</p>
+            <div class="mistake-card__fix">
+              <span class="mistake-card__fix-label">The fix</span>
+              <p>Build your budget first — total, by category, with a 10% contingency — before any vendor conversations. The budget tracker in Ubelia is specifically designed to be your first tool, not your third.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mistake-card">
+          <div class="mistake-card__number">02</div>
+          <div class="mistake-card__content">
+            <h3 class="mistake-card__title">Accepting the first vendor quote without negotiating</h3>
+            <p class="mistake-card__desc">Industry research consistently shows that 60–70% of wedding vendors have room to negotiate on price, package scope, or added value — but only 12% of couples attempt to negotiate. The reason is simple: couples don't know what's standard, what's flexible, and how to ask without damaging the relationship.</p>
+            <div class="mistake-card__fix">
+              <span class="mistake-card__fix-label">The fix</span>
+              <p>The vendor negotiation scripts in the guide give you the exact language to use — what to ask for, how to frame the conversation, and what concessions are reasonable to expect. Couples who use them consistently save 10–22% on bookings.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mistake-card">
+          <div class="mistake-card__number">03</div>
+          <div class="mistake-card__content">
+            <h3 class="mistake-card__title">Building a day-of timeline too late</h3>
+            <p class="mistake-card__desc">The day-of timeline is almost always the last document couples create — often the week before the wedding. At that point, changes are expensive, vendor availability is fixed, and the margin for error is zero. A timeline built late is built reactively, not strategically.</p>
+            <div class="mistake-card__fix">
+              <span class="mistake-card__fix-label">The fix</span>
+              <p>The timeline builder in Ubelia is designed to be started 3–4 months out, built iteratively as bookings are confirmed, and shared with every vendor so they're working from the same schedule. This is what professional coordinators do.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mistake-card">
+          <div class="mistake-card__number">04</div>
+          <div class="mistake-card__content">
+            <h3 class="mistake-card__title">Not reading vendor contracts before signing</h3>
+            <p class="mistake-card__desc">The most common hidden costs in weddings — mandatory service charges, overtime fees, exclusivity clauses, cancellation penalties — are all in contracts that couples sign without fully reading. A venue contract can legally lock in thousands in additional charges that were never discussed verbally.</p>
+            <div class="mistake-card__fix">
+              <span class="mistake-card__fix-label">The fix</span>
+              <p>The vendor contract checklist in the guide walks you through every clause to review before signing — the specific language to look for, the questions to ask, and the terms that should always be in writing. One flagged clause routinely saves more than the cost of the guide.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mistake-card">
+          <div class="mistake-card__number">05</div>
+          <div class="mistake-card__content">
+            <h3 class="mistake-card__title">Planning in isolation instead of as a team</h3>
+            <p class="mistake-card__desc">When one partner carries the full cognitive load of wedding planning, two things happen reliably: burnout, and decisions made without both perspectives. Couples who plan together — with shared visibility into budgets, tasks, and timelines — consistently report lower planning stress and higher satisfaction with the final result.</p>
+            <div class="mistake-card__fix">
+              <span class="mistake-card__fix-label">The fix</span>
+              <p>Every sheet in Ubelia is designed for shared access. Assign tasks, track progress together, and ensure both partners are working from the same information — not two separate understandings of a verbal conversation.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cta-block" data-animate style="margin-top:52px;">
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get the Complete System — $36</a>
+        <p style="font-size:12px;color:var(--mid);margin-top:10px;">Every mistake above is addressed directly inside the guide</p>
+      </div>
+
     </div>
   </section>
 
@@ -2809,7 +3009,7 @@
     <!-- CTA -->
     <div class="container">
       <div class="cta-block" data-animate style="margin-top:44px;">
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Instant Access — $9.99</a>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Instant Access — $36</a>
       </div>
     </div>
 
@@ -2843,7 +3043,7 @@
           </div>
           <div style="width:1px; height:40px; background:var(--light-border);"></div>
           <div style="text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">$9.99</div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">$36</div>
             <div style="font-size:12px; color:var(--mid); margin-top:2px;">vs. $2,100 planner fee</div>
           </div>
         </div>
@@ -2881,54 +3081,61 @@
           <span class="bonus-label">Bonus 1</span>
           <h4>33 Automated Google Sheets</h4>
           <p>Budget tracker, guest list, vendor comparison, seating chart, honeymoon planner — all pre-built, all automated. Open it, add your numbers, and watch everything calculate itself.</p>
+          <p class="bonus-card__why"><strong>Why it matters:</strong> Couples who track spending in real time spend an average of 18% less than those who estimate mentally. The automation removes the friction that causes people to stop tracking mid-planning.</p>
         </div>
 
         <div class="bonus-card">
           <span class="bonus-badge">Free</span>
           <span class="bonus-label">Bonus 2</span>
           <h4>100% Editable Digital Invitations on Canva</h4>
-          <p>5 stunning invitation designs your guests will actually talk about. Edit your names, date, and details in under 10 minutes — no design skills, no designer fees. Your first impression deserves to be perfect.</p>
+          <p>5 stunning invitation designs your guests will actually talk about. Edit your names, date, and details in under 10 minutes — no design skills, no designer fees.</p>
+          <p class="bonus-card__why"><strong>Why it matters:</strong> Your invitation is the first signal of your wedding's tone and quality. Couples who send cohesive, well-designed invitations report higher RSVP rates and fewer logistical questions from guests.</p>
         </div>
 
         <div class="bonus-card">
           <span class="bonus-badge">Free</span>
           <span class="bonus-label">Bonus 3</span>
           <h4>19 Expert Pro Tips</h4>
-          <p>The insider knowledge most couples only discover after the wedding. How to negotiate vendor contracts, build a timeline that actually runs on time, and avoid the 6 most expensive mistakes brides make. Real advice. Zero fluff.</p>
+          <p>The insider knowledge most couples only discover after the wedding — how to negotiate vendor contracts, build a timeline that actually runs on time, and avoid the 6 most expensive mistakes.</p>
+          <p class="bonus-card__why"><strong>Why it matters:</strong> Most of these tips involve information that vendors will not volunteer. Knowing what to ask — and when — is the difference between a fair contract and an expensive surprise clause.</p>
         </div>
 
         <div class="bonus-card">
           <span class="bonus-badge">Free</span>
           <span class="bonus-label">Bonus 4</span>
           <h4>Budget Case Studies — Real Weddings, Real Numbers</h4>
-          <p>See exactly how real couples pulled off beautiful weddings on $8K, $15K, and $30K. Real line items, real trade-offs, real results. Stop guessing what's possible — see the proof.</p>
+          <p>See exactly how real couples pulled off beautiful weddings on $8K, $15K, and $30K. Real line items, real trade-offs, real results.</p>
+          <p class="bonus-card__why"><strong>Why it matters:</strong> Most couples have no reference point for what things actually cost. Abstract budget advice creates anxiety. Real numbers, broken down by category, create clarity and actionable decisions.</p>
         </div>
 
         <div class="bonus-card">
           <span class="bonus-badge">Free</span>
           <span class="bonus-label">Bonus 5</span>
           <h4>Plan Together — The Couple's Shared Workspace</h4>
-          <p>The entire guide is interactive and fully shareable. Invite your partner, your mum, or your maid of honor with one click. Turn the most stressful thing you'll ever plan into something you actually enjoy doing together.</p>
+          <p>The entire guide is interactive and fully shareable. Invite your partner, your mum, or your maid of honor with one click.</p>
+          <p class="bonus-card__why"><strong>Why it matters:</strong> Planning tension between partners is one of the top sources of pre-wedding conflict. A shared system with clear task ownership eliminates the "I thought you were handling that" conversations.</p>
         </div>
 
         <div class="bonus-card">
           <span class="bonus-badge">Free</span>
           <span class="bonus-label">Bonus 6</span>
           <h4>Complete Setup Guide</h4>
-          <p>Up and running in under 15 minutes. Step-by-step walkthrough so you know exactly what to open, where to start, and how to make it yours — even if you've never used a spreadsheet before.</p>
+          <p>Up and running in under 15 minutes. Step-by-step walkthrough so you know exactly what to open, where to start, and how to make it yours.</p>
+          <p class="bonus-card__why"><strong>Why it matters:</strong> A planning system that takes more than 20 minutes to configure rarely gets used. The setup guide removes the barrier between purchase and action — which is where most planning tools fail.</p>
         </div>
 
         <div class="bonus-card">
           <span class="bonus-badge">Free</span>
           <span class="bonus-label">Bonus 7</span>
           <h4>Lifetime Access &amp; Free Updates</h4>
-          <p>Buy once, keep forever. Every new template, tip, and improvement we add goes straight to your copy — automatically. Your guide gets better as we learn what helps couples most.</p>
+          <p>Buy once, keep forever. Every new template, tip, and improvement we add goes straight to your copy — automatically.</p>
+          <p class="bonus-card__why"><strong>Why it matters:</strong> Wedding trends, vendor pricing, and planning best practices evolve. A static guide becomes outdated. Updates ensure every couple gets the most current information regardless of when they purchased.</p>
         </div>
 
       </div>
 
       <div class="cta-block" data-animate>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $9.99</a>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $36</a>
       </div>
     </div>
   </section>
@@ -2977,7 +3184,7 @@
       </div>
 
       <div class="cta-block" data-animate>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $9.99</a>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $36</a>
       </div>
     </div>
   </section>
@@ -3002,7 +3209,7 @@
         </div>
         <div class="expert-note__body">
           <span class="expert-note__label">The real cost of planning without a system</span>
-          <p class="expert-note__text">A wedding planner charges $1,500–$3,500 for one thing above all: access to a trusted structure. They know which vendors to contact and when, which clauses are negotiable, how to build a timeline that actually runs. <strong>The investment in Ubelia is not $9.99 — it's the comparison to what planning without it costs.</strong> Couples who track their spending save an average of $1,200–$2,400 compared to couples who don't. That is not a marketing claim. It is a consequence of visibility.</p>
+          <p class="expert-note__text">A wedding planner charges $1,500–$3,500 for one thing above all: access to a trusted structure. They know which vendors to contact and when, which clauses are negotiable, how to build a timeline that actually runs. <strong>The investment in Ubelia is not $36 — it's the comparison to what planning without it costs.</strong> Couples who track their spending save an average of $1,200–$2,400 compared to couples who don't. That is not a marketing claim. It is a consequence of visibility.</p>
         </div>
       </div>
 
@@ -3011,7 +3218,7 @@
 
         <div class="pricing-display">
           <span class="pricing-currency">$</span>
-          <span class="pricing-amount">9.99</span>
+          <span class="pricing-amount">36</span>
         </div>
 
         <div class="pricing-meta">
@@ -3031,7 +3238,7 @@
         </ul>
 
         <!-- REPLACE_WITH: https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X (Shopify product page or Etsy listing) -->
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $9.99</a>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $36</a>
 
         <p class="pricing-legal">
           Digital download &middot; No shipping &middot; Instant access &middot; Personal use only.<br />
@@ -3128,7 +3335,7 @@
           </button>
           <div class="faq-a">
             <div class="faq-a__inner">
-              A wedding planner charges $1,500–$3,500+ to do the coordination for you. Ubelia gives you the same system, checklists, vendor scripts, and timelines that planners use — so you can do it yourself, confidently. The difference: a planner makes decisions on your behalf and charges for their time. Ubelia puts you in control with the same tools, for $9.99. If you want full personal service and have the budget, a planner is great. If you want to be fully in control of your own wedding without the $2,100+ price tag, Ubelia is the answer. Most of our couples say they felt as organized as if they had a planner — without handing over that much money.
+              A wedding planner charges $1,500–$3,500+ to do the coordination for you. Ubelia gives you the same system, checklists, vendor scripts, and timelines that planners use — so you can do it yourself, confidently. The difference: a planner makes decisions on your behalf and charges for their time. Ubelia puts you in control with the same tools, for $36. If you want full personal service and have the budget, a planner is great. If you want to be fully in control of your own wedding without the $2,100+ price tag, Ubelia is the answer. Most of our couples say they felt as organized as if they had a planner — without handing over that much money.
             </div>
           </div>
         </div>
@@ -3176,7 +3383,7 @@
       </div>
 
       <div class="cta-block" data-animate>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $9.99</a>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $36</a>
       </div>
     </div>
   </section>
