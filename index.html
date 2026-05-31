@@ -338,7 +338,7 @@
        1b. EMPATHY SECTION (Fix 1 + Fix 2)
     ════════════════════════════════════════════════════════════════ */
     .empathy-section {
-      background: var(--charcoal);
+      background: var(--cream);
       padding: 72px 0;
     }
     .empathy-section__inner {
@@ -355,7 +355,7 @@
       font-size: clamp(1.3rem, 2.8vw, 1.75rem);
       font-weight: 300;
       font-style: italic;
-      color: rgba(255,248,238,0.92);
+      color: var(--charcoal);
       line-height: 1.7;
       margin-bottom: 24px;
     }
@@ -376,12 +376,12 @@
     }
     .empathy-section__bridge {
       font-size: 16px;
-      color: rgba(255,248,238,0.65);
+      color: var(--mid);
       line-height: 1.8;
     }
     .empathy-section__bridge strong {
-      color: var(--sand);
-      font-weight: 500;
+      color: var(--charcoal);
+      font-weight: 600;
     }
     .empathy-section__stat-col {
       display: flex;
@@ -389,7 +389,7 @@
       gap: 32px;
     }
     .empathy-stat {
-      border-left: 2px solid rgba(196,168,130,0.3);
+      border-left: 2px solid var(--light-border);
       padding-left: 20px;
     }
     .empathy-stat__num {
@@ -397,14 +397,14 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 3.5vw, 2.8rem);
       font-weight: 400;
-      color: var(--sand);
+      color: var(--coral);
       line-height: 1;
       margin-bottom: 6px;
     }
     .empathy-stat__label {
       display: block;
       font-size: 13px;
-      color: rgba(255,248,238,0.5);
+      color: var(--mid);
       line-height: 1.6;
     }
 
@@ -720,7 +720,7 @@
     .ct-head {
       display: grid;
       grid-template-columns: 200px 1fr 1fr;
-      background: var(--charcoal);
+      background: #F0EAE0;
     }
     .ct-head__topic {
       padding: 18px 24px;
@@ -728,7 +728,7 @@
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(255,248,238,0.4);
+      color: var(--mid);
       display: flex;
       align-items: center;
     }
@@ -739,10 +739,10 @@
       gap: 12px;
     }
     .ct-head__col--before {
-      border-left: 1px solid rgba(255,255,255,0.07);
+      border-left: 1px solid var(--light-border);
     }
     .ct-head__col--after {
-      border-left: 1px solid rgba(255,255,255,0.07);
+      border-left: 1px solid var(--light-border);
     }
     .ct-head__label {
       font-size: 12px;
@@ -750,8 +750,8 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-    .ct-head__col--before .ct-head__label { color: rgba(220,160,160,0.9); }
-    .ct-head__col--after  .ct-head__label { color: rgba(180,210,175,0.9); }
+    .ct-head__col--before .ct-head__label { color: #9B4444; }
+    .ct-head__col--after  .ct-head__label { color: var(--sage-dark); }
 
     /* Table rows */
     .ct-row {
@@ -1790,7 +1790,7 @@
        6b. PLANNING MISTAKES SECTION
     ════════════════════════════════════════════════════════════════ */
     .mistakes-section {
-      background: var(--charcoal);
+      background: var(--cream);
       padding: 88px 0;
     }
     .mistakes-header {
@@ -1801,14 +1801,14 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.7rem, 3.5vw, 2.4rem);
       font-weight: 400;
-      color: var(--cream);
+      color: var(--charcoal);
       max-width: 720px;
       margin: 0 auto 14px;
       line-height: 1.25;
     }
     .mistakes-header__sub {
       font-size: 15px;
-      color: rgba(255,248,238,0.5);
+      color: var(--mid);
       max-width: 580px;
       margin: 0 auto;
       line-height: 1.7;
@@ -1822,14 +1822,14 @@
       display: grid;
       grid-template-columns: 80px 1fr;
       gap: 0;
-      background: rgba(255,248,238,0.03);
-      border: 1px solid rgba(196,168,130,0.1);
+      background: #fff;
+      border: 1px solid var(--light-border);
       border-radius: 10px;
       overflow: hidden;
-      transition: background 0.2s;
+      transition: background 0.2s, box-shadow 0.2s;
     }
     .mistake-card:hover {
-      background: rgba(255,248,238,0.05);
+      box-shadow: 0 4px 20px rgba(28,26,23,0.06);
     }
     .mistake-card__number {
       display: flex;
@@ -1839,9 +1839,9 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
-      color: rgba(196,168,130,0.3);
+      color: rgba(196,168,130,0.5);
       letter-spacing: -0.02em;
-      border-right: 1px solid rgba(196,168,130,0.1);
+      border-right: 1px solid var(--light-border);
       flex-shrink: 0;
     }
     .mistake-card__content {
@@ -1851,13 +1851,13 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.1rem, 2vw, 1.35rem);
       font-weight: 600;
-      color: var(--cream);
+      color: var(--charcoal);
       margin-bottom: 12px;
       line-height: 1.3;
     }
     .mistake-card__desc {
       font-size: 14px;
-      color: rgba(255,248,238,0.55);
+      color: var(--mid);
       line-height: 1.75;
       margin-bottom: 18px;
     }
@@ -1878,7 +1878,7 @@
     }
     .mistake-card__fix p {
       font-size: 13.5px;
-      color: rgba(255,248,238,0.7);
+      color: var(--sage-dark);
       line-height: 1.65;
       margin: 0;
     }
@@ -2304,13 +2304,13 @@
   ══════════════════════════════════════════════════════════════ -->
   <section class="empathy-section">
     <div class="container">
-      <div class="expert-note" style="border-color:rgba(196,168,130,0.3);border-left-color:var(--sand);background:rgba(196,168,130,0.06);margin-bottom:48px;" data-animate>
-        <div class="expert-note__icon" style="background:var(--sand);">
+      <div class="expert-note" style="margin-bottom:48px;" data-animate>
+        <div class="expert-note__icon">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v4l3 3"/></svg>
         </div>
         <div class="expert-note__body">
-          <span class="expert-note__label" style="color:#8A6440;">Wedding Planning Expert</span>
-          <p class="expert-note__text" style="color:rgba(255,248,238,0.85);">The single biggest mistake engaged couples make is jumping into vendor research before understanding the structure of planning itself. <strong style="color:var(--sand);">Overwhelm is not caused by too many decisions — it's caused by not knowing which decision comes first.</strong> Every couple in this position is normal. And every one of them can fix it with the right system.</p>
+          <span class="expert-note__label">Wedding Planning Expert</span>
+          <p class="expert-note__text">The single biggest mistake engaged couples make is jumping into vendor research before understanding the structure of planning itself. <strong>Overwhelm is not caused by too many decisions — it's caused by not knowing which decision comes first.</strong> Every couple in this position is normal. And every one of them can fix it with the right system.</p>
         </div>
       </div>
       <div class="empathy-section__inner" data-animate>
