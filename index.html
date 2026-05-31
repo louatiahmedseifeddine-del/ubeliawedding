@@ -1895,6 +1895,149 @@
     }
 
     /* ════════════════════════════════════════════════════════════════
+       FOUNDERS SECTION — Our Story
+    ════════════════════════════════════════════════════════════════ */
+    .founders-section {
+      background: var(--cream);
+      padding: 88px 0;
+      border-top: 1px solid var(--light-border);
+    }
+    .founders-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .founders-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+      line-height: 1.15;
+    }
+    .founders-subtitle {
+      font-size: 14px;
+      color: var(--mid);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .founders-body {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .founders-pullquote {
+      border-left: 3px solid var(--coral);
+      padding: 20px 28px;
+      margin-bottom: 44px;
+      background: rgba(201,132,90,0.04);
+      border-radius: 0 8px 8px 0;
+    }
+    .founders-pullquote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+    .founders-pullquote span {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+    .founders-credentials {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--light-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #fff;
+      margin-bottom: 48px;
+    }
+    @media (max-width: 767px) {
+      .founders-credentials { grid-template-columns: repeat(2, 1fr); }
+    }
+    .founders-credential {
+      padding: 24px 20px;
+      text-align: center;
+      border-right: 1px solid var(--light-border);
+    }
+    .founders-credential:last-child { border-right: none; }
+    .founders-credential__num {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: var(--coral);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .founders-credential__label {
+      display: block;
+      font-size: 12px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+    .founders-story {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .founders-story__block {
+      padding: 28px 32px;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--light-border);
+    }
+    .founders-story__block--highlight {
+      background: rgba(127,141,116,0.05);
+      border-color: rgba(127,141,116,0.2);
+    }
+    .founders-story__chapter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 14px;
+      letter-spacing: 0.01em;
+    }
+    .founders-story__block p {
+      font-size: 15px;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 14px;
+    }
+    .founders-story__block p:last-child { margin-bottom: 0; }
+    .founders-story__block strong { color: var(--charcoal); font-weight: 600; }
+    .founders-closing {
+      text-align: center;
+      padding: 36px 32px;
+      border: 1px solid var(--light-border);
+      border-radius: var(--radius-lg);
+      background: #fff;
+    }
+    .founders-closing p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 767px) {
+      .founders-story__block { padding: 20px 18px; }
+      .founders-pullquote { padding: 16px 20px; }
+      .founders-closing { padding: 24px 18px; }
+      .founders-closing .btn-primary { width: 100%; text-align: center; }
+    }
+
+    /* ════════════════════════════════════════════════════════════════
        EXPERT NOTE — reusable educational callout
     ════════════════════════════════════════════════════════════════ */
     .expert-note {
@@ -2440,6 +2583,82 @@
           <span class="trust-strip__text"><strong>Secure checkout</strong> — Stripe encrypted</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       9. HOW IT WORKS
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="how-section">
+    <div class="container">
+      <div data-animate>
+        <span class="label">Simple Process</span>
+        <h2>Get Started in Minutes</h2>
+      </div>
+
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">Why setup speed is not a convenience — it's a conversion factor</span>
+          <p class="expert-note__text">Setup friction is the leading reason planning tools go unused. Couples who do not see a meaningful result within the first session rarely return to the tool. <strong>This guide was designed to produce a clear, actionable plan within 20 minutes of opening it</strong> — not because we rushed the content, but because getting you into the system quickly is the only way the system can help you. A guide that sits unopened helps no one.</p>
+        </div>
+      </div>
+
+      <div class="steps-grid" data-animate>
+        <div class="step">
+          <div class="step__num">1</div>
+          <h4>Purchase</h4>
+          <p>Complete your secure checkout in under 60 seconds.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <h4>Download</h4>
+          <p>Instant access to your PDF guide and all 33 Google Sheets.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <h4>Customize</h4>
+          <p>Follow the setup guide and make it yours in minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">4</div>
+          <h4>Plan</h4>
+          <p>Use the expert system to stay organized and on budget.</p>
+        </div>
+      </div>
+
+      <div class="cta-block" data-animate>
+        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $36</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       10. PRICING
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="pricing-section__header" data-animate>
+        <span class="label">Get Started Today</span>
+        <h2>Your Dream Wedding Without Breaking the Bank</h2>
+        <p class="pricing-section__sub">
+          Join hundreds of couples who planned their perfect wedding without chaos,
+          stress, or budget disasters.
+        </p>
+      </div>
+
+      <div class="expert-note" data-animate>
+        <div class="expert-note__icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="expert-note__body">
+          <span class="expert-note__label">The real cost of planning without a system</span>
+          <p class="expert-note__text">A wedding planner charges $1,500–$3,500 for one thing above all: access to a trusted structure. They know which vendors to contact and when, which clauses are negotiable, how to build a timeline that actually runs. <strong>The investment in Ubelia is not $36 — it's the comparison to what planning without it costs.</strong> Couples who track their spending save an average of $1,200–$2,400 compared to couples who don't. That is not a marketing claim. It is a consequence of visibility.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -3176,114 +3395,87 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════════════
-       7b. BRAND STORY (Fix 13)
+       7b. OUR STORY — Meet Megan & Ryan
   ══════════════════════════════════════════════════════════════ -->
-  <section style="background:var(--cream); padding:72px 0; border-top:1px solid var(--light-border);">
+  <section class="founders-section">
     <div class="container">
-      <div style="max-width:680px; margin:0 auto; text-align:center;" data-animate>
-        <span class="label">About Ubelia</span>
-        <h2 style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.4rem); font-weight:400; color:var(--charcoal); margin-bottom:24px; line-height:1.2;">
-          Built by Two People Obsessed With Making This Easier
-        </h2>
-        <p style="font-size:16px; color:var(--mid); line-height:1.85; margin-bottom:18px;">
-          Ubelia was built by two people obsessed with helping couples feel in control of their wedding — without paying for a planner. We went deep on every part of the planning process: budgets, vendors, vows, the lot — and put it all in one place.
-        </p>
-        <p style="font-size:15px; color:var(--mid); line-height:1.75; margin-bottom:28px;">
-          We didn't want a generic template. We wanted the kind of system that actually accounts for the reality of planning — the 2am panic, the surprise costs, the vendors who quote one thing and charge another. Every sheet, every checklist, every script in this guide was built around one question: <em style="color:var(--charcoal);">what would have saved us the most stress?</em>
-        </p>
-        <div style="display:inline-flex; align-items:center; gap:32px; flex-wrap:wrap; justify-content:center; padding:20px 32px; background:var(--cream); border-radius:var(--radius-lg); border:1px solid var(--light-border);">
-          <div style="text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">6,279+</div>
-            <div style="font-size:12px; color:var(--mid); margin-top:2px;">Couples worldwide</div>
+
+      <!-- Header -->
+      <div class="founders-header" data-animate>
+        <span class="label">Our Story</span>
+        <h2 class="founders-title">Meet Megan &amp; Ryan</h2>
+        <p class="founders-subtitle">Founders of Ubelia</p>
+      </div>
+
+      <!-- Story body -->
+      <div class="founders-body">
+
+        <!-- Pull quote -->
+        <div class="founders-pullquote" data-animate>
+          <p>"After 800 weddings, I realised the same thing was missing for every single couple. Not motivation. Not budget. A real starting point."</p>
+          <span>— Megan Colton, Co-Founder</span>
+        </div>
+
+        <!-- Credential bar -->
+        <div class="founders-credentials" data-animate>
+          <div class="founders-credential">
+            <span class="founders-credential__num">800+</span>
+            <span class="founders-credential__label">Weddings planned by Megan</span>
           </div>
-          <div style="width:1px; height:40px; background:var(--light-border);"></div>
-          <div style="text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">4.9 / 5</div>
-            <div style="font-size:12px; color:var(--mid); margin-top:2px;">Average rating</div>
+          <div class="founders-credential">
+            <span class="founders-credential__num">15</span>
+            <span class="founders-credential__label">Years as a professional planner</span>
           </div>
-          <div style="width:1px; height:40px; background:var(--light-border);"></div>
-          <div style="text-align:center;">
-            <div style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:400; color:var(--charcoal);">$36</div>
-            <div style="font-size:12px; color:var(--mid); margin-top:2px;">vs. $2,100 planner fee</div>
+          <div class="founders-credential">
+            <span class="founders-credential__num">10</span>
+            <span class="founders-credential__label">US states, coast to coast</span>
+          </div>
+          <div class="founders-credential">
+            <span class="founders-credential__num">6,279+</span>
+            <span class="founders-credential__label">Couples helped since launch</span>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ══════════════════════════════════════════════════════════════
-       9. HOW IT WORKS
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="how-section">
-    <div class="container">
-      <div data-animate>
-        <span class="label">Simple Process</span>
-        <h2>Get Started in Minutes</h2>
-      </div>
+        <!-- Long-form story -->
+        <div class="founders-story" data-animate>
 
-      <div class="expert-note" data-animate>
-        <div class="expert-note__icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div class="expert-note__body">
-          <span class="expert-note__label">Why setup speed is not a convenience — it's a conversion factor</span>
-          <p class="expert-note__text">Setup friction is the leading reason planning tools go unused. Couples who do not see a meaningful result within the first session rarely return to the tool. <strong>This guide was designed to produce a clear, actionable plan within 20 minutes of opening it</strong> — not because we rushed the content, but because getting you into the system quickly is the only way the system can help you. A guide that sits unopened helps no one.</p>
-        </div>
-      </div>
+          <div class="founders-story__block">
+            <h3 class="founders-story__chapter">Megan's 15 Years</h3>
+            <p>Megan Colton spent 15 years doing the job most couples only dream of having on their side. As a professional wedding planner, she organized over 800 weddings across 10 US states — from backyard ceremonies in Texas to ballroom receptions in New York. She negotiated vendor contracts, rescued budgets that had spiraled, rewrote timelines the week before the wedding, and stood next to hundreds of couples on the most important day of their lives.</p>
+            <p>She was good at it. But after 15 years, one thing kept bothering her.</p>
+          </div>
 
-      <div class="steps-grid" data-animate>
-        <div class="step">
-          <div class="step__num">1</div>
-          <h4>Purchase</h4>
-          <p>Complete your secure checkout in under 60 seconds.</p>
-        </div>
-        <div class="step">
-          <div class="step__num">2</div>
-          <h4>Download</h4>
-          <p>Instant access to your PDF guide and all 33 Google Sheets.</p>
-        </div>
-        <div class="step">
-          <div class="step__num">3</div>
-          <h4>Customize</h4>
-          <p>Follow the setup guide and make it yours in minutes.</p>
-        </div>
-        <div class="step">
-          <div class="step__num">4</div>
-          <h4>Plan</h4>
-          <p>Use the expert system to stay organized and on budget.</p>
-        </div>
-      </div>
+          <div class="founders-story__block founders-story__block--highlight">
+            <p>Every couple she worked with started the same way — excited, overwhelmed, and completely without a system. They were smart, organized people who had planned vacations, managed careers, and run households. But wedding planning broke them. Not because they weren't capable. <strong>Because nobody had ever given them a real starting point.</strong></p>
+            <p>The free templates were blank. The books were outdated. The advice online was scattered and contradictory. And a full-service planner like Megan cost more than most couples had budgeted for flowers.</p>
+          </div>
 
-      <div class="cta-block" data-animate>
-        <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get Everything — $36</a>
-      </div>
-    </div>
-  </section>
+          <div class="founders-story__block">
+            <h3 class="founders-story__chapter">Writing It All Down</h3>
+            <p>So she started writing things down. Every vendor script that actually worked. Every budget framework she had built from scratch. Every vow conversation she had guided a panicked couple through at 11pm the night before their ceremony. Fifteen years of hard-won expertise, organized into a system any couple could follow on their own.</p>
+          </div>
 
-  <!-- ══════════════════════════════════════════════════════════════
-       10. PRICING
-  ══════════════════════════════════════════════════════════════ -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-      <div class="pricing-section__header" data-animate>
-        <span class="label">Get Started Today</span>
-        <h2>Your Dream Wedding Without Breaking the Bank</h2>
-        <p class="pricing-section__sub">
-          Join hundreds of couples who planned their perfect wedding without chaos,
-          stress, or budget disasters.
-        </p>
-      </div>
+          <div class="founders-story__block">
+            <h3 class="founders-story__chapter">Ryan's Side of the Story</h3>
+            <p>Ryan Colton spent those same years building software products in the tech industry — leading teams, shipping products, and turning complex problems into tools people actually use. When Megan showed him what she was building, he saw immediately what it could become.</p>
+            <p>They were already married. They already knew, from their own experience, how chaotic and expensive and emotionally draining wedding planning could be — even when one of you did it professionally for a living.</p>
+          </div>
 
-      <div class="expert-note" data-animate>
-        <div class="expert-note__icon">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <div class="founders-story__block founders-story__block--highlight">
+            <h3 class="founders-story__chapter">Launching Ubelia</h3>
+            <p>In 2024, they both walked away from their careers and launched Ubelia together. <strong>Megan brought the expertise. Ryan built the system.</strong> The result is a planning experience that feels less like managing a project and more like something you do together — organized, clear, and actually enjoyable.</p>
+            <p>Since launching, Ubelia has helped over 6,000 couples across the US, Canada, and Europe plan their wedding — on budget, on time, and without losing their minds in the process.</p>
+          </div>
+
         </div>
-        <div class="expert-note__body">
-          <span class="expert-note__label">The real cost of planning without a system</span>
-          <p class="expert-note__text">A wedding planner charges $1,500–$3,500 for one thing above all: access to a trusted structure. They know which vendors to contact and when, which clauses are negotiable, how to build a timeline that actually runs. <strong>The investment in Ubelia is not $36 — it's the comparison to what planning without it costs.</strong> Couples who track their spending save an average of $1,200–$2,400 compared to couples who don't. That is not a marketing claim. It is a consequence of visibility.</p>
-        </div>
-      </div>
 
+        <!-- Closing statement -->
+        <div class="founders-closing" data-animate>
+          <p>Megan &amp; Ryan built Ubelia for the couple they once were — and for every couple who deserves a real system, not another blank template.</p>
+          <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get the Guide They Built — $36</a>
+        </div>
+
+      </div>
     </div>
   </section>
 
