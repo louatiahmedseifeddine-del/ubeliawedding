@@ -1902,139 +1902,104 @@
       padding: 88px 0;
       border-top: 1px solid var(--light-border);
     }
-    .founders-header {
-      text-align: center;
-      margin-bottom: 52px;
+    .founders-inner {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 64px;
+      align-items: flex-start;
     }
+    @media (max-width: 900px) {
+      .founders-inner { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .founders-photo-wrap {
+      position: sticky;
+      top: 100px;
+    }
+    @media (max-width: 900px) {
+      .founders-photo-wrap { position: static; }
+    }
+    .founders-photo {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      display: block;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center top;
+      box-shadow: 0 8px 40px rgba(28,26,23,0.12);
+    }
+    .founders-photo-caption {
+      text-align: center;
+      font-size: 12px;
+      color: var(--mid);
+      margin-top: 12px;
+      letter-spacing: 0.04em;
+    }
+    .founders-content .label { margin-bottom: 8px; }
     .founders-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
       font-weight: 400;
       color: var(--charcoal);
-      margin-bottom: 6px;
+      margin-bottom: 24px;
       line-height: 1.15;
     }
-    .founders-subtitle {
-      font-size: 14px;
+    .founders-lead {
+      font-size: 16px;
+      color: var(--charcoal);
+      line-height: 1.85;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+    .founders-body-text {
+      font-size: 15px;
       color: var(--mid);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 500;
+      line-height: 1.85;
+      margin-bottom: 18px;
     }
-    .founders-body {
-      max-width: 780px;
-      margin: 0 auto;
-    }
-    .founders-pullquote {
-      border-left: 3px solid var(--coral);
-      padding: 20px 28px;
-      margin-bottom: 44px;
-      background: rgba(201,132,90,0.04);
-      border-radius: 0 8px 8px 0;
-    }
-    .founders-pullquote p {
+    .founders-body-text strong { color: var(--charcoal); font-weight: 600; }
+    .founders-quote {
+      border-left: 3px solid var(--sand);
+      padding: 16px 22px;
+      margin: 28px 0;
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
       font-style: italic;
       font-weight: 400;
       color: var(--charcoal);
-      line-height: 1.65;
-      margin-bottom: 10px;
+      line-height: 1.7;
+      background: rgba(196,168,130,0.06);
+      border-radius: 0 6px 6px 0;
     }
-    .founders-pullquote span {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--coral);
-    }
-    .founders-credentials {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    .founders-stats {
+      display: flex;
       gap: 0;
       border: 1px solid var(--light-border);
       border-radius: var(--radius-lg);
       overflow: hidden;
       background: #fff;
-      margin-bottom: 48px;
+      margin-top: 32px;
     }
-    @media (max-width: 767px) {
-      .founders-credentials { grid-template-columns: repeat(2, 1fr); }
-    }
-    .founders-credential {
-      padding: 24px 20px;
+    .founders-stat {
+      flex: 1;
+      padding: 20px 16px;
       text-align: center;
       border-right: 1px solid var(--light-border);
     }
-    .founders-credential:last-child { border-right: none; }
-    .founders-credential__num {
+    .founders-stat:last-child { border-right: none; }
+    .founders-stat__num {
       display: block;
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
       font-weight: 400;
       color: var(--coral);
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
-    .founders-credential__label {
+    .founders-stat__label {
       display: block;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--mid);
-      line-height: 1.5;
-    }
-    .founders-story {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      margin-bottom: 48px;
-    }
-    .founders-story__block {
-      padding: 28px 32px;
-      background: #fff;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--light-border);
-    }
-    .founders-story__block--highlight {
-      background: rgba(127,141,116,0.05);
-      border-color: rgba(127,141,116,0.2);
-    }
-    .founders-story__chapter {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 14px;
-      letter-spacing: 0.01em;
-    }
-    .founders-story__block p {
-      font-size: 15px;
-      color: var(--mid);
-      line-height: 1.85;
-      margin-bottom: 14px;
-    }
-    .founders-story__block p:last-child { margin-bottom: 0; }
-    .founders-story__block strong { color: var(--charcoal); font-weight: 600; }
-    .founders-closing {
-      text-align: center;
-      padding: 36px 32px;
-      border: 1px solid var(--light-border);
-      border-radius: var(--radius-lg);
-      background: #fff;
-    }
-    .founders-closing p {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--charcoal);
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    @media (max-width: 767px) {
-      .founders-story__block { padding: 20px 18px; }
-      .founders-pullquote { padding: 16px 20px; }
-      .founders-closing { padding: 24px 18px; }
-      .founders-closing .btn-primary { width: 100%; text-align: center; }
+      line-height: 1.4;
     }
 
     /* ════════════════════════════════════════════════════════════════
@@ -3399,80 +3364,42 @@
   ══════════════════════════════════════════════════════════════ -->
   <section class="founders-section">
     <div class="container">
+      <div class="founders-inner" data-animate>
 
-      <!-- Header -->
-      <div class="founders-header" data-animate>
-        <span class="label">Our Story</span>
-        <h2 class="founders-title">Meet Megan &amp; Ryan</h2>
-        <p class="founders-subtitle">Founders of Ubelia</p>
-      </div>
-
-      <!-- Story body -->
-      <div class="founders-body">
-
-        <!-- Pull quote -->
-        <div class="founders-pullquote" data-animate>
-          <p>"After 800 weddings, I realised the same thing was missing for every single couple. Not motivation. Not budget. A real starting point."</p>
-          <span>— Megan Colton, Co-Founder</span>
+        <!-- Photo -->
+        <div class="founders-photo-wrap">
+          <img src="founder.jpg" alt="Megan &amp; Ryan Colton, founders of Ubelia" class="founders-photo" loading="lazy" />
+          <div class="founders-photo-caption">Megan &amp; Ryan Colton — Founders of Ubelia</div>
         </div>
 
-        <!-- Credential bar -->
-        <div class="founders-credentials" data-animate>
-          <div class="founders-credential">
-            <span class="founders-credential__num">800+</span>
-            <span class="founders-credential__label">Weddings planned by Megan</span>
-          </div>
-          <div class="founders-credential">
-            <span class="founders-credential__num">15</span>
-            <span class="founders-credential__label">Years as a professional planner</span>
-          </div>
-          <div class="founders-credential">
-            <span class="founders-credential__num">10</span>
-            <span class="founders-credential__label">US states, coast to coast</span>
-          </div>
-          <div class="founders-credential">
-            <span class="founders-credential__num">6,279+</span>
-            <span class="founders-credential__label">Couples helped since launch</span>
-          </div>
-        </div>
+        <!-- Text -->
+        <div class="founders-content">
+          <span class="label">Our Story</span>
+          <h2 class="founders-title">Meet Megan &amp; Ryan</h2>
 
-        <!-- Long-form story -->
-        <div class="founders-story" data-animate>
+          <p class="founders-lead">Megan Colton spent 15 years as a professional wedding planner — over 800 weddings, 10 US states, from backyard ceremonies in Texas to ballroom receptions in New York. Every vendor script that worked. Every budget she rescued. Every timeline rewritten the week before the wedding.</p>
 
-          <div class="founders-story__block">
-            <h3 class="founders-story__chapter">Megan's 15 Years</h3>
-            <p>Megan Colton spent 15 years doing the job most couples only dream of having on their side. As a professional wedding planner, she organized over 800 weddings across 10 US states — from backyard ceremonies in Texas to ballroom receptions in New York. She negotiated vendor contracts, rescued budgets that had spiraled, rewrote timelines the week before the wedding, and stood next to hundreds of couples on the most important day of their lives.</p>
-            <p>She was good at it. But after 15 years, one thing kept bothering her.</p>
+          <p class="founders-body-text">But one thing kept bothering her. Every couple started the same way — excited, overwhelmed, and completely without a system. Not because they weren't capable. Because nobody had ever given them a real starting point. The templates were blank. The advice online was scattered. And a full-service planner cost more than most couples had budgeted for flowers.</p>
+
+          <p class="founders-body-text">So she started writing it all down. Ryan Colton — her husband, and a product builder from the tech industry — saw what she was creating and knew exactly what it could become. In 2024, they both walked away from their careers and launched Ubelia together. <strong>Megan brought 15 years of expertise. Ryan built the system.</strong></p>
+
+          <blockquote class="founders-quote">"We built Ubelia for the couple we once were — and for every couple who deserves a real system, not another blank template."</blockquote>
+
+          <!-- Stats -->
+          <div class="founders-stats">
+            <div class="founders-stat">
+              <span class="founders-stat__num">800+</span>
+              <span class="founders-stat__label">Weddings planned</span>
+            </div>
+            <div class="founders-stat">
+              <span class="founders-stat__num">15 yrs</span>
+              <span class="founders-stat__label">Professional planning</span>
+            </div>
+            <div class="founders-stat">
+              <span class="founders-stat__num">6,279+</span>
+              <span class="founders-stat__label">Couples helped</span>
+            </div>
           </div>
-
-          <div class="founders-story__block founders-story__block--highlight">
-            <p>Every couple she worked with started the same way — excited, overwhelmed, and completely without a system. They were smart, organized people who had planned vacations, managed careers, and run households. But wedding planning broke them. Not because they weren't capable. <strong>Because nobody had ever given them a real starting point.</strong></p>
-            <p>The free templates were blank. The books were outdated. The advice online was scattered and contradictory. And a full-service planner like Megan cost more than most couples had budgeted for flowers.</p>
-          </div>
-
-          <div class="founders-story__block">
-            <h3 class="founders-story__chapter">Writing It All Down</h3>
-            <p>So she started writing things down. Every vendor script that actually worked. Every budget framework she had built from scratch. Every vow conversation she had guided a panicked couple through at 11pm the night before their ceremony. Fifteen years of hard-won expertise, organized into a system any couple could follow on their own.</p>
-          </div>
-
-          <div class="founders-story__block">
-            <h3 class="founders-story__chapter">Ryan's Side of the Story</h3>
-            <p>Ryan Colton spent those same years building software products in the tech industry — leading teams, shipping products, and turning complex problems into tools people actually use. When Megan showed him what she was building, he saw immediately what it could become.</p>
-            <p>They were already married. They already knew, from their own experience, how chaotic and expensive and emotionally draining wedding planning could be — even when one of you did it professionally for a living.</p>
-          </div>
-
-          <div class="founders-story__block founders-story__block--highlight">
-            <h3 class="founders-story__chapter">Launching Ubelia</h3>
-            <p>In 2024, they both walked away from their careers and launched Ubelia together. <strong>Megan brought the expertise. Ryan built the system.</strong> The result is a planning experience that feels less like managing a project and more like something you do together — organized, clear, and actually enjoyable.</p>
-            <p>Since launching, Ubelia has helped over 6,000 couples across the US, Canada, and Europe plan their wedding — on budget, on time, and without losing their minds in the process.</p>
-          </div>
-
-        </div>
-
-        <!-- Closing statement -->
-        <div class="founders-closing" data-animate>
-          <p>Megan &amp; Ryan built Ubelia for the couple they once were — and for every couple who deserves a real system, not another blank template.</p>
-          <a href="https://buy.stripe.com/aFaeVdc6JdhpalObEqdnW0X" class="btn-primary">Get the Guide They Built — $36</a>
         </div>
 
       </div>
